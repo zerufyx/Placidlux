@@ -1,0 +1,1094 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style>
+<title>Placid Lux Esthetic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: espresso hero and membership rooms, porcelain and warm cream pages between them; champagne (flat) for every call to action. Services open by category; details and booking live in sheets. */
+:root{
+  --porcelain:#f7f2ef; --paper:#fffcfa; --cream:#f4e9d2; --cream-line:#e4d3b3; --ink:#2b201c; --muted:#76655b; --mocha:#7a5a4b; --line:#e6dbd4;
+  --champ:#c3a67f; --champ-d:#b0915f; --on-champ:#241915;
+  --deep:#1d1512; --deep-2:#2a1f1a; --deep-fg:#f3e9e2; --deep-muted:#b9a79c; --deep-line:rgba(195,166,127,.2); --glow:#c79a73;
+  --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --f-body:"Jost","Avenir Next","Century Gothic",system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --porcelain:#171210; --paper:#211915; --cream:#231a15; --cream-line:#3b2e25; --ink:#f0e6df; --muted:#b1a097; --mocha:#d0a88c; --line:#3a2e28; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --porcelain:#171210; --paper:#211915; --cream:#231a15; --cream-line:#3b2e25; --ink:#f0e6df; --muted:#b1a097; --mocha:#d0a88c; --line:#3a2e28; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--porcelain);color:var(--ink);font-family:var(--f-body);font-weight:300;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:1.5px solid var(--champ);outline-offset:3px}
+.wrap{width:100%;max-width:1200px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0;line-height:1.08}
+.eyebrow{font-size:.7rem;letter-spacing:.34em;text-transform:uppercase;font-weight:400;color:var(--muted);display:flex;align-items:center;gap:14px;margin:0}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--champ)}
+.dark{background:var(--deep);color:var(--deep-fg)}
+.dark .eyebrow{color:var(--champ)}
+.cream{background:var(--cream)}
+
+/* buttons: flat champagne */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.7em;border:1px solid var(--champ);background:var(--champ);color:var(--on-champ);
+  padding:1em 2em;font-size:.76rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;text-decoration:none;cursor:pointer;border-radius:2px;
+  transition:background .45s var(--ease),border-color .45s var(--ease),color .45s var(--ease),transform .35s var(--ease)}
+.btn:hover{background:var(--champ-d);border-color:var(--champ-d)}
+.btn:active{transform:scale(.98)}
+.btn.line{background:transparent;color:inherit;border-color:var(--champ)}
+.btn.line:hover{background:var(--champ);color:var(--on-champ)}
+.btn.sm{padding:.75em 1.3em;font-size:.68rem}
+.btn[disabled],.btn[aria-disabled="true"]{opacity:.4;pointer-events:none}
+.link{background:none;border:0;border-bottom:1px solid currentColor;padding:0 0 2px;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:letter-spacing .4s var(--ease)}
+.link:hover{letter-spacing:.28em}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--deep) 88%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--deep-fg);border-bottom:1px solid var(--deep-line)}
+.nav .wrap{display:flex;align-items:center;gap:24px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.brand svg{width:34px;height:34px;flex:none;color:var(--champ)}
+.brand b{font-family:var(--f-display);font-weight:400;font-size:.95rem;letter-spacing:.28em;white-space:nowrap}
+.brand small{display:block;font-size:.55rem;letter-spacing:.42em;color:var(--deep-muted);margin-top:2px}
+.nav nav{display:flex;gap:28px;margin-left:auto}
+.nav nav a{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--deep-muted);transition:color .3s}
+.nav nav a:hover{color:var(--champ)}
+.lang{display:flex;border:1px solid var(--deep-line);border-radius:99px;padding:2px}
+.lang button{background:none;border:0;padding:.3em .7em;font-size:.66rem;letter-spacing:.14em;color:var(--deep-muted);cursor:pointer;border-radius:99px}
+.lang button[aria-pressed="true"]{background:var(--champ);color:var(--on-champ)}
+.nav .btn{padding:.75em 1.3em}
+@media (max-width:940px){.nav nav{display:none}.lang{margin-left:auto}}
+@media (max-width:560px){.nav .btn{display:none}.brand small{display:none}.brand b{font-size:.8rem;letter-spacing:.2em}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:-20% -10% auto auto;width:min(760px,120vw);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(closest-side,color-mix(in srgb,var(--glow) 42%,transparent),transparent 70%);z-index:-1;animation:breathe 9s ease-in-out infinite;filter:blur(8px)}
+.hero::after{content:"";position:absolute;inset:auto auto -30% -15%;width:min(560px,100vw);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(closest-side,color-mix(in srgb,var(--champ) 18%,transparent),transparent 70%);z-index:-1;animation:breathe 9s ease-in-out -4.5s infinite}
+@keyframes breathe{0%,100%{transform:scale(.9);opacity:.7}50%{transform:scale(1.08);opacity:1}}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center;padding-block:clamp(56px,9vw,120px) clamp(56px,8vw,104px)}
+.hero-copy{min-width:0}
+.hero .eyebrow{color:var(--champ)}
+.hero h1{font-size:clamp(2.9rem,7.4vw,6.2rem);letter-spacing:-.01em;margin-top:22px;line-height:1}
+.hero h1 span{display:block}
+.hero h1 span:nth-child(2){font-style:italic;color:var(--glow);padding-left:.6em}
+.hero h1 span:nth-child(3){padding-left:1.2em}
+.hero .lede{font-family:var(--f-display);font-style:italic;font-size:clamp(1.15rem,2vw,1.45rem);line-height:1.45;max-width:30ch;margin:34px 0 0}
+.hero .lede cite{display:block;font-family:var(--f-body);font-style:normal;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--deep-muted);margin-top:14px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.hero-mark{justify-self:center;width:100%;max-width:340px;color:var(--champ);position:relative}
+.hero-mark svg{width:100%;height:auto;display:block}
+.hero-mark .ring{position:absolute;inset:-8%;border:1px solid var(--deep-line);border-radius:50%;animation:spin 60s linear infinite}
+.hero-mark .ring::before{content:"";position:absolute;top:-3px;left:50%;width:6px;height:6px;border-radius:50%;background:var(--champ)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-mark p{text-align:center;font-size:.64rem;letter-spacing:.5em;color:var(--deep-muted);margin:28px 0 0;padding-left:.5em}
+.draw path,.draw circle{stroke-dasharray:1 1;stroke-dashoffset:0;animation:draw 2.8s var(--ease) both}
+@keyframes draw{from{stroke-dashoffset:1}}
+.rise{animation:rise 1.2s var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}}
+.hero-meta{border-top:1px solid var(--deep-line)}
+.hero-meta .wrap{display:flex;flex-wrap:wrap;gap:10px 40px;padding-block:18px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--deep-muted)}
+.hero-meta span{display:flex;gap:10px;align-items:center}
+.hero-meta i{width:5px;height:5px;border-radius:50%;background:var(--champ)}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero-mark{max-width:150px;order:-1;justify-self:start;margin-left:8px}.hero-mark p{display:none}}
+
+@supports (animation-timeline:view()){
+  .reveal{animation:reveal linear both;animation-timeline:view();animation-range:entry 0% entry 55%}
+  @keyframes reveal{from{opacity:.15;transform:translateY(36px)}to{opacity:1;transform:none}}
+}
+
+section{padding-block:clamp(72px,10vw,124px)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px 64px;align-items:end;margin-bottom:52px}
+.sec-head h2{font-size:clamp(2.2rem,4.6vw,3.6rem);margin-top:16px}
+.sec-head h2 em{color:var(--mocha)}
+.dark .sec-head h2 em{color:var(--champ)}
+.sec-head p{margin:0;color:var(--muted);max-width:46ch}
+.dark .sec-head p{color:var(--deep-muted)}
+@media (max-width:760px){.sec-head{grid-template-columns:1fr}}
+
+/* ritual */
+.ritual{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--champ)}
+.ritual article{padding:34px 32px 6px 0;display:grid;gap:12px;align-content:start}
+.ritual article+article{padding-left:32px;border-left:1px solid var(--line)}
+.ritual .verb{font-family:var(--f-display);font-style:italic;font-size:2.4rem;color:var(--mocha);line-height:1}
+.ritual h3{font-family:var(--f-body);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-weight:400;color:var(--muted)}
+.ritual p{margin:0;max-width:34ch}
+@media (max-width:760px){.ritual{grid-template-columns:1fr}.ritual article,.ritual article+article{padding:26px 0;border-left:0;border-bottom:1px solid var(--line)}}
+
+/* services */
+.cats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.cat{position:relative;display:grid;grid-template-rows:auto 1fr auto;gap:16px;text-align:left;cursor:pointer;padding:24px 20px 20px;min-height:300px;
+  background:var(--deep);border:1px solid var(--deep);color:var(--deep-fg);border-radius:2px;
+  transition:transform .6s var(--ease),box-shadow .6s var(--ease),background .4s var(--ease)}
+.cat:hover{transform:translateY(-5px);box-shadow:0 24px 44px -26px rgba(29,21,18,.7)}
+.cat .ico{width:66px;height:66px;color:var(--champ)}
+.ico *{fill:none;stroke:currentColor;stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round}
+.cat .ico path,.cat .ico circle,.cat .ico ellipse{stroke-dasharray:1 1}
+.cat:hover .ico path,.cat:hover .ico circle,.cat:hover .ico ellipse{animation:draw 1.6s var(--ease) both}
+.cat h3{font-size:1.45rem;line-height:1.12;align-self:end}
+.cat .foot{display:flex;justify-content:space-between;align-items:end;gap:10px;padding-top:14px;border-top:1px solid var(--deep-line);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--deep-muted)}
+.cat .foot b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.12rem;letter-spacing:0;text-transform:none;color:var(--champ);margin-top:2px}
+.cat .count{position:absolute;top:20px;right:18px;font-family:var(--f-display);font-style:italic;color:var(--champ)}
+.cat .arrow{width:32px;height:32px;border:1px solid var(--deep-line);border-radius:50%;display:grid;place-items:center;flex:none;transition:all .5s var(--ease)}
+.cat[aria-selected="true"]{background:var(--champ);border-color:var(--champ);color:var(--on-champ)}
+.cat[aria-selected="true"] .ico,.cat[aria-selected="true"] .foot b,.cat[aria-selected="true"] .count{color:var(--on-champ)}
+.cat[aria-selected="true"] .foot{color:rgba(36,25,21,.7);border-color:rgba(36,25,21,.2)}
+.cat[aria-selected="true"] .arrow{background:var(--on-champ);color:var(--champ);border-color:var(--on-champ);transform:rotate(90deg)}
+@media (max-width:1060px){.cats{grid-template-columns:repeat(3,minmax(0,1fr))}.cat{min-height:250px}}
+@media (max-width:640px){.cats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.cat{min-height:0;padding:16px 14px 14px;gap:10px}.cat .ico{width:46px;height:46px}.cat h3{font-size:1.12rem}.cat:last-child{grid-column:1/-1}.cat .arrow{width:26px;height:26px}.cat .count{top:14px;right:14px}}
+
+.panel{margin-top:52px;scroll-margin-top:92px}
+.panel-body{animation:paneIn .55s var(--ease) both}
+@keyframes paneIn{from{opacity:0;transform:translateY(12px)}}
+.panel-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px 40px;padding-bottom:22px;border-bottom:1px solid var(--champ)}
+.panel-head h3{font-size:clamp(1.9rem,3.6vw,2.7rem)}
+.panel-head p{margin:8px 0 0;color:var(--muted);max-width:56ch}
+.group{display:grid;grid-template-columns:200px minmax(0,1fr);gap:18px 44px;padding-block:28px;border-bottom:1px solid var(--cream-line)}
+.group > h4{font-style:italic;font-size:1.3rem;color:var(--mocha)}
+.group > h4 small{display:block;font-family:var(--f-body);font-style:normal;font-size:.8rem;color:var(--muted);margin-top:6px;line-height:1.5}
+.rows{display:grid}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 24px;align-items:center;padding:16px 0;border-bottom:1px dashed var(--cream-line);animation:paneIn .5s var(--ease) both;animation-delay:calc(var(--i,0)*35ms)}
+.row:last-child{border-bottom:0}
+.row h5{margin:0;font-family:var(--f-display);font-weight:400;font-size:1.2rem;line-height:1.25;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px}
+.row .tag{font-family:var(--f-body);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--champ);color:var(--mocha);padding:.2em .6em;border-radius:99px;white-space:nowrap}
+.row .tag.fill{background:var(--champ);color:var(--on-champ)}
+.row p{margin:2px 0 0;color:var(--muted);font-size:.9rem;line-height:1.45}
+.row .right{display:grid;justify-items:end;gap:6px;grid-row:span 2}
+.row .price{font-family:var(--f-display);font-size:1.25rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.row .price.soft{font-style:italic;font-size:1rem;color:var(--muted)}
+.row .dur{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.row .acts{display:flex;gap:16px;align-items:center;margin-top:2px}
+.row .acts .link{color:var(--muted)}
+.row .acts .link.go{color:var(--mocha)}
+@media (max-width:860px){.group{grid-template-columns:1fr}}
+@media (max-width:520px){.row{grid-template-columns:1fr}.row .right{grid-row:auto;justify-items:start;grid-auto-flow:column;align-items:center;justify-content:space-between}}
+.sig{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 40px;align-items:center;margin-top:28px;padding:30px clamp(20px,4vw,44px);background:var(--deep);color:var(--deep-fg);border-radius:2px;overflow:hidden;isolation:isolate}
+.sig::after{content:"";position:absolute;right:-80px;top:-100px;width:300px;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--glow) 36%,transparent),transparent);z-index:-1;animation:breathe 9s ease-in-out infinite}
+.sig .tagline{font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:var(--champ)}
+.sig h4{margin:8px 0 8px;font-size:clamp(1.5rem,3vw,2.2rem)}
+.sig p{margin:0;color:var(--deep-muted);max-width:58ch}
+.sig .right{display:grid;justify-items:end;gap:10px}
+.sig .big{font-family:var(--f-display);font-size:clamp(2rem,4vw,2.8rem);line-height:1;color:var(--champ)}
+.sig .link{color:var(--deep-muted)}
+@media (max-width:640px){.sig{grid-template-columns:1fr}.sig .right{justify-items:start}}
+
+/* membership */
+.plan{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(32px,5vw,72px);align-items:start}
+.plan-card{position:relative;border:1px solid var(--champ);padding:clamp(26px,4vw,44px);display:grid;gap:18px}
+.plan-card::before{content:"";position:absolute;inset:7px;border:1px solid var(--deep-line);pointer-events:none}
+.plan-card .price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.plan-card .price b{font-family:var(--f-display);font-weight:400;font-size:clamp(3.2rem,6vw,4.6rem);line-height:1;color:var(--champ)}
+.plan-card .price span{color:var(--deep-muted);font-size:.9rem}
+.plan-card h3{font-size:clamp(1.8rem,3.4vw,2.5rem)}
+.plan-card p{margin:0;color:var(--deep-muted)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-block:1px solid var(--deep-line)}
+.facts div{padding:14px 12px 14px 0;display:grid;gap:2px}
+.facts div+div{padding-left:14px;border-left:1px solid var(--deep-line)}
+.facts b{font-family:var(--f-display);font-weight:400;font-size:1.3rem;color:var(--deep-fg)}
+.facts span{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--deep-muted)}
+.plan-card .ctas{display:flex;flex-wrap:wrap;gap:12px;position:relative}
+.plan-list h4{font-family:var(--f-body);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;font-weight:400;color:var(--champ);margin-bottom:10px}
+.plan-list ul{list-style:none;margin:0;padding:0;columns:2;column-gap:36px}
+.plan-list li{break-inside:avoid;display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--deep-line);font-size:.93rem}
+.plan-list li span:last-child{font-family:var(--f-display);color:var(--deep-muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.plan-list li s{color:var(--deep-muted);text-decoration-color:var(--champ)}
+.plan-list .fine{margin:16px 0 0;font-size:.82rem;color:var(--deep-muted)}
+@media (max-width:900px){.plan{grid-template-columns:1fr}}
+@media (max-width:560px){.plan-list ul{columns:1}.facts{grid-template-columns:1fr}.facts div+div{padding-left:0;border-left:0;border-top:1px solid var(--deep-line)}}
+
+/* founder */
+.founder .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(36px,6vw,96px);align-items:center}
+.portrait{position:relative;margin:0 20px 20px 0}
+.portrait img{display:block;width:100%;height:auto;aspect-ratio:760/1019;object-fit:cover;border-radius:2px}
+.portrait::before{content:"";position:absolute;inset:20px -20px -20px 20px;border:1px solid var(--champ);z-index:-1}
+.portrait figcaption{position:absolute;left:0;bottom:28px;background:var(--cream);padding:12px 18px;font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;color:var(--mocha)}
+.founder-copy{min-width:0}
+.founder h2{font-size:clamp(2.2rem,4.4vw,3.4rem);margin:16px 0 26px}
+.founder h2 em{color:var(--mocha)}
+.founder p{max-width:54ch;margin:0 0 16px}
+.creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.creds span{background:var(--cream);border:1px solid var(--cream-line);padding:.5em 1em;border-radius:99px;font-size:.74rem;letter-spacing:.06em;color:var(--mocha)}
+.sign{font-family:var(--f-display);font-style:italic;font-size:1.9rem;color:var(--mocha);margin-top:22px}
+@media (max-width:820px){.founder .wrap{grid-template-columns:1fr}.portrait{max-width:420px}}
+
+/* quote */
+.quote{text-align:center;position:relative;overflow:hidden;isolation:isolate}
+.quote::before{content:"";position:absolute;left:50%;top:50%;width:min(700px,110vw);aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--glow) 22%,transparent),transparent);z-index:-1;animation:breathe 9s ease-in-out infinite}
+.quote blockquote{margin:0 auto;max-width:28ch;font-family:var(--f-display);font-style:italic;font-size:clamp(1.6rem,3.6vw,2.5rem);line-height:1.3}
+.quote .mark{font-family:var(--f-display);font-size:5rem;line-height:.5;color:var(--champ);display:block;margin-bottom:22px}
+.quote cite{display:block;margin-top:28px;font-style:normal;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--deep-muted)}
+
+/* visit */
+.visit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--champ)}
+.visit-grid > div{padding:28px 26px 28px 0;display:grid;gap:10px;align-content:start;min-width:0}
+.visit-grid > div+div{padding-left:26px;border-left:1px solid var(--cream-line)}
+.visit-grid h3{font-family:var(--f-body);font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;font-weight:400;color:var(--muted)}
+.visit-grid .big{font-family:var(--f-display);font-size:1.35rem;line-height:1.35;overflow-wrap:anywhere}
+.visit-grid a{text-decoration:none;border-bottom:1px solid var(--cream-line);justify-self:start}
+.visit-grid a:hover{border-color:var(--champ)}
+.copy{background:none;border:1px solid var(--champ);border-radius:99px;padding:.36em .95em;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);cursor:pointer;justify-self:start}
+.copy:hover{background:var(--champ);color:var(--on-champ)}
+.visit-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+@media (max-width:820px){.visit-grid{grid-template-columns:1fr}.visit-grid > div,.visit-grid > div+div{padding:22px 0;border-left:0;border-bottom:1px solid var(--cream-line)}}
+
+footer{padding-block:48px calc(48px + 66px)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between;font-size:.8rem;color:var(--deep-muted)}
+footer nav{display:flex;gap:22px;flex-wrap:wrap}
+footer nav a{text-decoration:none;letter-spacing:.16em;text-transform:uppercase;font-size:.68rem}
+footer nav a:hover{color:var(--champ)}
+@media (min-width:761px){footer{padding-bottom:48px}}
+
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:45;display:none;gap:10px;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--deep) 92%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--deep-line)}
+.dock .btn{flex:1}
+.dock .wa{flex:none;width:52px;display:grid;place-items:center;border:1px solid var(--champ);border-radius:2px;color:var(--champ)}
+.dock .wa svg{width:22px;height:22px}
+@media (max-width:760px){.dock{display:flex}}
+
+/* ===== sheets (details + booking) ===== */
+.scrim{position:fixed;inset:0;z-index:60;background:rgba(20,14,12,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;transition:opacity .5s var(--ease)}
+.scrim.on{opacity:1}
+.sheet{position:fixed;z-index:61;right:0;top:0;bottom:0;width:min(580px,100%);background:var(--cream);display:flex;flex-direction:column;
+  transform:translateX(100%);transition:transform .6s var(--ease);box-shadow:-30px 0 80px rgba(20,14,12,.28)}
+.sheet.on{transform:none}
+@media (max-width:640px){.sheet{top:auto;height:calc(100% - 24px - env(safe-area-inset-top,0px));width:100%;transform:translateY(100%);border-radius:16px 16px 0 0;overflow:hidden}}
+.sheet-head{padding:calc(20px + env(safe-area-inset-top,0px)) 24px 16px;display:grid;gap:14px;background:var(--deep);color:var(--deep-fg);border-bottom:2px solid var(--champ)}
+@media (max-width:640px){.sheet-head{padding-top:18px}}
+.sheet-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.sheet-top h2{font-size:1.65rem}
+.sheet-top .kicker{display:block;font-family:var(--f-body);font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--champ);margin-bottom:6px}
+.x{background:none;border:1px solid var(--deep-line);width:40px;height:40px;border-radius:50%;cursor:pointer;display:grid;place-items:center;flex:none;color:var(--deep-fg);transition:border-color .3s,transform .5s var(--ease)}
+.x:hover{border-color:var(--champ);transform:rotate(90deg)}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;list-style:none;margin:0;padding:0}
+.steps li{display:grid;gap:8px;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--deep-muted)}
+.steps li::before{content:"";height:2px;background:rgba(195,166,127,.22);transition:background .5s var(--ease)}
+.steps li.done::before,.steps li.cur::before{background:var(--champ)}
+.steps li.cur{color:var(--champ)}
+.sheet-body{flex:1;overflow-y:auto;padding:22px 24px 28px;overscroll-behavior:contain}
+.pane{display:grid;gap:18px;animation:slideIn .45s var(--ease) both}
+@keyframes slideIn{from{opacity:0;transform:translateX(16px)}}
+.pane h3,.pane h4{font-family:var(--f-body);font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;font-weight:400;color:var(--muted)}
+.bcats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.bcat{display:grid;justify-items:center;gap:6px;padding:12px 4px 10px;background:var(--paper);border:1px solid var(--cream-line);cursor:pointer;text-align:center;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.25;border-radius:2px;transition:all .35s var(--ease)}
+.bcat svg{width:32px;height:32px;color:var(--mocha)}
+.bcat:hover{border-color:var(--champ)}
+.bcat[aria-pressed="true"]{background:var(--champ);border-color:var(--champ);color:var(--on-champ)}
+.bcat[aria-pressed="true"] svg{color:var(--on-champ)}
+@media (max-width:420px){.bcats{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.opts{display:grid;gap:8px}
+.opt{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 14px;text-align:left;background:var(--paper);border:1px solid var(--cream-line);padding:14px 16px;cursor:pointer;border-radius:2px;transition:border-color .3s,background .3s,transform .3s var(--ease)}
+.opt:hover{border-color:var(--champ)}
+.opt b{font-family:var(--f-display);font-weight:400;font-size:1.06rem;line-height:1.25}
+.opt .p{font-family:var(--f-display);font-size:1.06rem;text-align:right;font-variant-numeric:tabular-nums}
+.opt .d{font-size:.72rem;color:var(--muted);letter-spacing:.06em}
+.opt[aria-pressed="true"]{border-color:var(--champ);background:color-mix(in srgb,var(--champ) 16%,var(--paper));box-shadow:inset 3px 0 0 var(--champ)}
+.svc-card{background:var(--paper);border:1px solid var(--cream-line);border-left:3px solid var(--champ);padding:14px 16px;display:grid;gap:4px;border-radius:2px}
+.svc-card b{font-family:var(--f-display);font-weight:400;font-size:1.15rem}
+.svc-card span{font-size:.8rem;color:var(--muted)}
+.cal{background:var(--paper);border:1px solid var(--cream-line);padding:14px;border-radius:2px}
+.cal-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.cal-top b{font-family:var(--f-display);font-weight:400;font-style:italic;font-size:1.2rem}
+.cal-top button{background:none;border:1px solid var(--cream-line);width:34px;height:34px;border-radius:50%;cursor:pointer;display:grid;place-items:center}
+.cal-top button:hover:not([disabled]){border-color:var(--champ)}
+.cal-top button[disabled]{opacity:.3;cursor:default}
+.grid7{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center}
+.grid7 .dow{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-bottom:4px}
+.dbtn{aspect-ratio:1;max-height:46px;width:100%;border:1px solid transparent;background:none;cursor:pointer;border-radius:50%;font-variant-numeric:tabular-nums;font-size:.95rem;display:grid;place-items:center;transition:all .25s var(--ease);position:relative}
+.dbtn.av::after{content:"";position:absolute;bottom:14%;width:4px;height:4px;border-radius:50%;background:var(--champ)}
+.dbtn:hover:not([disabled]){border-color:var(--champ)}
+.dbtn[disabled]{color:var(--muted);opacity:.4;cursor:default}
+.dbtn[aria-pressed="true"]{background:var(--deep);color:var(--champ);border-color:var(--deep)}
+.dbtn[aria-pressed="true"]::after{background:var(--champ)}
+.tz{font-size:.78rem;color:var(--muted);margin:0}
+.slots-group{display:grid;gap:10px}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:8px}
+.slot{border:1px solid var(--cream-line);background:var(--paper);padding:.7em 0;cursor:pointer;font-variant-numeric:tabular-nums;font-size:.9rem;border-radius:2px;transition:all .25s var(--ease)}
+.slot:hover{border-color:var(--champ)}
+.slot[aria-pressed="true"]{background:var(--champ);border-color:var(--champ);color:var(--on-champ);font-weight:400}
+.empty{color:var(--muted);font-size:.9rem;margin:0}
+.field{display:grid;gap:6px}
+.field label{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.field input,.field textarea{font:inherit;font-weight:400;color:var(--ink);background:var(--paper);border:1px solid var(--cream-line);padding:.8em .95em;width:100%;border-radius:2px;transition:border-color .3s,box-shadow .3s}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--champ);box-shadow:0 0 0 3px color-mix(in srgb,var(--champ) 25%,transparent)}
+.field textarea{min-height:80px;resize:vertical}
+.field .err{font-size:.8rem;color:#a4533f;display:none}
+.field.bad .err{display:block}
+.field.bad input{border-color:#a4533f}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+@media (max-width:420px){.two{grid-template-columns:1fr}}
+.toggle{display:flex;gap:12px;align-items:center;cursor:pointer;font-size:.94rem}
+.toggle input{appearance:none;width:42px;height:24px;border-radius:99px;background:var(--cream-line);position:relative;cursor:pointer;transition:background .3s;flex:none;margin:0}
+.toggle input::after{content:"";position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:50%;background:var(--paper);transition:transform .4s var(--ease);box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.toggle input:checked{background:var(--champ)}
+.toggle input:checked::after{transform:translateX(18px)}
+.pay{display:grid;gap:8px}
+.pay label{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 12px;align-items:start;background:var(--paper);border:1px solid var(--cream-line);padding:13px 15px;cursor:pointer;border-radius:2px}
+.pay input{grid-row:span 2;margin:4px 0 0;accent-color:var(--champ-d);width:16px;height:16px}
+.pay b{font-weight:400}
+.pay small{color:var(--muted);font-size:.78rem}
+.pay label:has(input:checked){border-color:var(--champ);box-shadow:inset 3px 0 0 var(--champ)}
+.summary{background:var(--paper);border:1px solid var(--champ);padding:16px 18px;display:grid;gap:9px;border-radius:2px}
+.summary .r{display:flex;justify-content:space-between;gap:16px;font-size:.9rem}
+.summary .r span:first-child{color:var(--muted);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;padding-top:.3em;flex:none}
+.summary .r span:last-child{text-align:right;min-width:0}
+.summary .r.total{border-top:1px solid var(--cream-line);padding-top:9px;font-family:var(--f-display);font-size:1.15rem}
+.care{background:var(--paper);border:1px solid var(--cream-line);border-radius:2px}
+.care summary{cursor:pointer;padding:13px 16px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mocha);list-style:none;display:flex;justify-content:space-between;gap:12px}
+.care summary::-webkit-details-marker{display:none}
+.care summary::after{content:"+";font-size:1.1rem;line-height:1;transition:transform .3s}
+.care[open] summary::after{transform:rotate(45deg)}
+.care ul{margin:0;padding:0 16px 14px 34px;font-size:.9rem;display:grid;gap:4px}
+.care li::marker{color:var(--champ)}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:.9rem;cursor:pointer}
+.consent input{margin:4px 0 0;accent-color:var(--champ-d);width:17px;height:17px;flex:none}
+.sheet-foot{border-top:1px solid var(--cream-line);padding:14px 24px calc(14px + env(safe-area-inset-bottom,0px));display:flex;gap:12px;align-items:center;background:var(--cream)}
+.sheet-foot .picked{flex:1;min-width:0;font-size:.78rem;color:var(--muted);line-height:1.35}
+.sheet-foot .picked b{display:block;font-family:var(--f-display);font-weight:400;color:var(--ink);font-size:1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.back{background:none;border:0;cursor:pointer;color:var(--muted);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;padding:.8em .3em}
+.back:hover{color:var(--ink)}
+.done-pane{text-align:center;justify-items:center;padding-top:8px}
+.done-pane > svg{width:84px;height:84px;color:var(--champ-d)}
+.done-pane h3{font-family:var(--f-display);font-size:2rem;letter-spacing:0;text-transform:none;color:var(--ink)}
+.done-pane p{margin:0;color:var(--muted);max-width:40ch}
+.done-pane .summary{text-align:left;width:100%}
+.small-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.note{font-size:.8rem;color:var(--muted);margin:0}
+/* details sheet */
+.d-lede{font-family:var(--f-display);font-style:italic;font-size:1.3rem;line-height:1.45;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:var(--paper);border:1px solid var(--cream-line);padding:.45em .95em;border-radius:99px;font-size:.78rem}
+.chips span.gold{background:var(--champ);border-color:var(--champ);color:var(--on-champ)}
+.care-grid{display:grid;gap:8px}
+#d-foot .btn{flex:none}
+@media (max-width:520px){#d-foot .picked{display:none}#d-foot .btn{flex:1}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+
+</head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="knot" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+      <g id="petal"><path d="M0 -4 C16 -18 16 -40 0 -56 C-16 -40 -16 -18 0 -4Z"/><path d="M0 -14 C7 -22 7 -34 0 -44 C-7 -34 -7 -22 0 -14Z"/></g>
+      <use href="#petal" transform="rotate(90)"/><use href="#petal" transform="rotate(180)"/><use href="#petal" transform="rotate(270)"/>
+      <g transform="rotate(45)"><path id="lp" d="M0 -10 C12 -20 12 -34 0 -42 C-12 -34 -12 -20 0 -10Z"/><use href="#lp" transform="rotate(90)"/><use href="#lp" transform="rotate(180)"/><use href="#lp" transform="rotate(270)"/></g>
+      <circle r="4"/>
+    </g>
+    <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Placid Lux Esthetic">
+      <svg viewBox="-60 -60 120 120" aria-hidden="true"><use href="#knot"/></svg>
+      <span><b>PLACID LUX</b><small>ESTHETIC</small></span>
+    </a>
+    <nav aria-label="Principal">
+      <a href="#servicios" data-i18n="nav.menu">Servicios</a>
+      <a href="#membresia" data-i18n="nav.plan">Membresía</a>
+      <a href="#fundadora" data-i18n="nav.founder">Fundadora</a>
+      <a href="#visitanos" data-i18n="nav.visit">Visítanos</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma">
+      <button type="button" id="lang-es" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <button class="btn" type="button" data-book data-i18n="cta.book">Reservar</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero dark" style="padding:0">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow rise" style="animation-delay:.2s" data-i18n="hero.eyebrow">Spa facial · Dr. Phillips, Orlando</p>
+        <h1 aria-label="Relájate. Renueva. Revive.">
+          <span class="rise" style="animation-delay:.45s" data-i18n="hero.l1">Relájate.</span>
+          <span class="rise" style="animation-delay:.75s" data-i18n="hero.l2">Renueva.</span>
+          <span class="rise" style="animation-delay:1.05s" data-i18n="hero.l3">Revive.</span>
+        </h1>
+        <p class="lede rise" style="animation-delay:1.4s"><span data-i18n="hero.quote">“Un spa creado para transformar la cotidianidad en una experiencia de lujo y tranquilidad.”</span>
+          <cite>Dannitza Pernia · <span data-i18n="hero.role">Fundadora</span></cite></p>
+        <div class="ctas rise" style="animation-delay:1.7s">
+          <button class="btn" type="button" data-book data-i18n="cta.bookLong">Reservar mi cita</button>
+          <a class="btn line" href="#servicios" data-i18n="cta.menu">Ver servicios</a>
+        </div>
+      </div>
+      <div class="hero-mark rise" style="animation-delay:.1s" aria-hidden="true">
+        <div class="ring"></div>
+        <svg viewBox="-62 -62 124 124" class="draw">
+          <g fill="none" stroke="currentColor" stroke-width=".9" stroke-linecap="round">
+            <g><path pathLength="1" d="M0 -4 C16 -18 16 -40 0 -56 C-16 -40 -16 -18 0 -4Z"/><path pathLength="1" d="M0 -14 C7 -22 7 -34 0 -44 C-7 -34 -7 -22 0 -14Z"/></g>
+            <g transform="rotate(90)"><path pathLength="1" style="animation-delay:.25s" d="M0 -4 C16 -18 16 -40 0 -56 C-16 -40 -16 -18 0 -4Z"/><path pathLength="1" style="animation-delay:.25s" d="M0 -14 C7 -22 7 -34 0 -44 C-7 -34 -7 -22 0 -14Z"/></g>
+            <g transform="rotate(180)"><path pathLength="1" style="animation-delay:.5s" d="M0 -4 C16 -18 16 -40 0 -56 C-16 -40 -16 -18 0 -4Z"/><path pathLength="1" style="animation-delay:.5s" d="M0 -14 C7 -22 7 -34 0 -44 C-7 -34 -7 -22 0 -14Z"/></g>
+            <g transform="rotate(270)"><path pathLength="1" style="animation-delay:.75s" d="M0 -4 C16 -18 16 -40 0 -56 C-16 -40 -16 -18 0 -4Z"/><path pathLength="1" style="animation-delay:.75s" d="M0 -14 C7 -22 7 -34 0 -44 C-7 -34 -7 -22 0 -14Z"/></g>
+            <g transform="rotate(45)" style="opacity:.8">
+              <path pathLength="1" style="animation-delay:1s" d="M0 -10 C12 -20 12 -34 0 -42 C-12 -34 -12 -20 0 -10Z"/>
+              <path pathLength="1" style="animation-delay:1.15s" transform="rotate(90)" d="M0 -10 C12 -20 12 -34 0 -42 C-12 -34 -12 -20 0 -10Z"/>
+              <path pathLength="1" style="animation-delay:1.3s" transform="rotate(180)" d="M0 -10 C12 -20 12 -34 0 -42 C-12 -34 -12 -20 0 -10Z"/>
+              <path pathLength="1" style="animation-delay:1.45s" transform="rotate(270)" d="M0 -10 C12 -20 12 -34 0 -42 C-12 -34 -12 -20 0 -10Z"/>
+            </g>
+            <circle pathLength="1" r="4" style="animation-delay:1.6s"/>
+          </g>
+        </svg>
+        <p>RELÁJATE · RENUEVA · REVIVE</p>
+      </div>
+    </div>
+    <div class="hero-meta"><div class="wrap">
+      <span><i></i><span data-i18n="meta.1">Esteticista licenciada</span></span>
+      <span><i></i><span data-i18n="meta.2">Faciales avanzados · Cejas · Pestañas</span></span>
+      <span><i></i><span data-i18n="meta.3">Especialista médico en sitio</span></span>
+    </div></div>
+  </section>
+
+  <section id="experiencia">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><p class="eyebrow" data-i18n="exp.eyebrow">La experiencia</p>
+          <h2 data-i18n-html="exp.title">Tu pausa, <em>diseñada</em> con calma</h2></div>
+        <p data-i18n="exp.lede">Llegas, respiras y te vas con una piel que se siente cuidada. Sin prisa, sin ruido.</p>
+      </div>
+      <div class="ritual reveal">
+        <article><span class="verb" data-i18n="r1.v">Relájate</span><h3 data-i18n="r1.t">Llegada y diagnóstico</h3><p data-i18n="r1.p">Evaluamos tu piel y elegimos los productos y el enfoque que mejor te funcionan.</p></article>
+        <article><span class="verb" data-i18n="r2.v">Renueva</span><h3 data-i18n="r2.t">Tratamiento</h3><p data-i18n="r2.p">Activos de alta calidad, tecnología estética y productos naturales.</p></article>
+        <article><span class="verb" data-i18n="r3.v">Revive</span><h3 data-i18n="r3.t">Cuidado en casa</h3><p data-i18n="r3.p">Te vas con tus indicaciones de cuidado y la fecha ideal para tu próxima sesión.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" class="cream">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><p class="eyebrow" data-i18n="menu.eyebrow">Nuestros servicios</p>
+          <h2 data-i18n-html="menu.title">Elige tu <em>ritual</em></h2></div>
+        <p data-i18n="menu.lede">Elige una categoría. Toca “Detalles” para ver cómo prepararte y los cuidados de cada tratamiento.</p>
+      </div>
+      <div class="cats" role="tablist" id="cats" aria-label="Categorías"></div>
+      <div class="panel" id="panel" role="tabpanel"></div>
+    </div>
+  </section>
+
+  <section id="membresia" class="dark">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><p class="eyebrow" data-i18n="plan.eyebrow">Membresía</p>
+          <h2 data-i18n-html="plan.title">Tu piel, <em>cada mes</em></h2></div>
+        <p data-i18n="plan.lede">Un facial al mes adaptado a lo que tu piel necesita: limpieza profunda, regeneración, hidratación, ADN, PRP y más.</p>
+      </div>
+      <div class="plan reveal">
+        <div class="plan-card">
+          <h3>Premium Facial Membership</h3>
+          <div class="price"><b>$200</b><span data-i18n="plan.per">al mes</span></div>
+          <div class="facts">
+            <div><b data-i18n="plan.f1v">1 facial</b><span data-i18n="plan.f1">cada mes</span></div>
+            <div><b data-i18n="plan.f2v">6 meses</b><span data-i18n="plan.f2">de duración</span></div>
+            <div><b data-i18n="plan.f3v">13</b><span data-i18n="plan.f3">tratamientos a elegir</span></div>
+          </div>
+          <p data-i18n="plan.p">Incluye faciales que normalmente cuestan hasta $380. Te acompañamos mes a mes para mantener tu piel en su mejor momento todo el año.</p>
+          <div class="ctas">
+            <button class="btn" type="button" id="plan-book" data-i18n="plan.cta">Empezar mi membresía</button>
+            <a class="btn line" href="https://wa.me/14077288815?text=Hola%20Placid%20Lux%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Premium%20Facial%20Membership" target="_blank" rel="noopener" data-i18n="plan.ask">Preguntar</a>
+          </div>
+        </div>
+        <div class="plan-list">
+          <h4 data-i18n="plan.inc">Elige cada mes entre</h4>
+          <ul id="plan-list"></ul>
+          <p class="fine" data-i18n="plan.fine">Precio regular tachado. La membresía se cobra mensualmente durante 6 meses.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fundadora" class="founder">
+    <div class="wrap">
+      <figure class="portrait reveal">
+        <img src="data:image/jpeg;base64,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" alt="Dannitza Pernia, fundadora de Placid Lux Esthetic" width="760" height="1019">
+        <figcaption>Dannitza Pernia</figcaption>
+      </figure>
+      <div class="founder-copy reveal">
+        <p class="eyebrow" data-i18n="f.eyebrow">La fundadora</p>
+        <h2 data-i18n-html="f.title">Belleza que nace de la <em>calma</em></h2>
+        <p data-i18n="f.p1">Soy Dannitza Pernia, esteticista licenciada con experiencia en estética facial y formación en ciencias de la salud. Por eso entiendo el cuidado de la piel desde la belleza y desde el bienestar.</p>
+        <p data-i18n="f.p2">En Placid Lux me especializo en faciales avanzados que combinan activos de alta calidad, tecnología estética y productos naturales. También ofrezco diseño de cejas y extensiones de pestañas con un enfoque moderno y lujoso.</p>
+        <p data-i18n="f.p3">Mi meta es crear un espacio donde cada clienta se sienta vista, cuidada y segura en su propia piel.</p>
+        <div class="creds"><span data-i18n="c1">Esteticista licenciada</span><span data-i18n="c2">Ciencias de la salud</span><span data-i18n="c3">Faciales avanzados</span><span data-i18n="c4">Cejas y pestañas</span></div>
+        <div class="sign">Dannitza</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote dark">
+    <div class="wrap reveal">
+      <span class="mark" aria-hidden="true">“</span>
+      <blockquote data-i18n="q.text">Placid Lux es mi lugar para relajarme y cuidarme. Siempre es una experiencia tranquila, profesional y personalizada. Salgo de cada visita renovada y segura.</blockquote>
+      <cite>Alexa Young · <span data-i18n="q.who">Clienta</span></cite>
+    </div>
+  </section>
+
+  <section id="visitanos" class="cream">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><p class="eyebrow" data-i18n="v.eyebrow">Visítanos</p>
+          <h2 data-i18n-html="v.title">Te esperamos en <em>Dr. Phillips</em></h2></div>
+        <p data-i18n="v.lede">Atención con cita previa. Reserva en línea y te confirmamos por WhatsApp.</p>
+      </div>
+      <div class="visit-grid reveal">
+        <div><h3 data-i18n="v.addr">Dirección</h3>
+          <a class="big" href="https://maps.google.com/?q=7932+W+Sand+Lake+Rd+STE+306,+Orlando,+FL+32819" target="_blank" rel="noopener">7932 W Sand Lake Rd, Ste 306<br>Orlando, FL 32819</a>
+          <button class="copy" type="button" data-copy="7932 W Sand Lake Rd STE 306, Orlando, FL 32819" data-i18n="copy">Copiar</button></div>
+        <div><h3 data-i18n="v.contact">Contacto</h3>
+          <span class="big">(407) 728-8815</span>
+          <span style="overflow-wrap:anywhere">placidluxesthetic@gmail.com</span>
+          <button class="copy" type="button" data-copy="(407) 728-8815" data-i18n="copyPhone">Copiar teléfono</button></div>
+        <div><h3 data-i18n="v.follow">Síguenos</h3>
+          <a class="big" href="https://www.instagram.com/placidluxesthetic" target="_blank" rel="noopener">Instagram</a>
+          <a class="big" href="https://www.tiktok.com/@placid.lux.esthet" target="_blank" rel="noopener">TikTok</a></div>
+      </div>
+      <div class="visit-cta reveal">
+        <button class="btn" type="button" data-book data-i18n="cta.bookLong">Reservar mi cita</button>
+        <a class="btn line" href="https://wa.me/14077288815" target="_blank" rel="noopener"><svg width="16" height="16" aria-hidden="true"><use href="#wa"/></svg> <span data-i18n="cta.wa">Escríbenos</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="dark">
+  <div class="wrap">
+    <a class="brand" href="#top"><svg viewBox="-60 -60 120 120" aria-hidden="true"><use href="#knot"/></svg><span><b>PLACID LUX</b><small>ESTHETIC</small></span></a>
+    <nav><a href="#servicios" data-i18n="nav.menu">Servicios</a><a href="#membresia" data-i18n="nav.plan">Membresía</a><a href="#fundadora" data-i18n="nav.founder">Fundadora</a><a href="#visitanos" data-i18n="nav.visit">Visítanos</a></nav>
+    <span>© 2026 Placid Lux Esthetic · Orlando, FL</span>
+  </div>
+</footer>
+
+<div class="dock">
+  <button class="btn" type="button" data-book data-i18n="cta.bookLong">Reservar mi cita</button>
+  <a class="wa" href="https://wa.me/14077288815" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#wa"/></svg></a>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+
+<aside class="sheet" id="dsheet" role="dialog" aria-modal="true" aria-labelledby="d-title" hidden>
+  <div class="sheet-head"><div class="sheet-top"><h2 id="d-title"></h2>
+    <button class="x" type="button" data-close aria-label="Cerrar"><svg width="14" height="14" viewBox="0 0 14 14" stroke="currentColor" stroke-width="1.4"><path d="M1 1l12 12M13 1L1 13"/></svg></button></div></div>
+  <div class="sheet-body" id="d-body"></div>
+  <div class="sheet-foot" id="d-foot"></div>
+</aside>
+
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" hidden>
+  <div class="sheet-head">
+    <div class="sheet-top"><h2 id="sheet-title" data-i18n="b.title">Reserva tu cita</h2>
+      <button class="x" type="button" data-close aria-label="Cerrar"><svg width="14" height="14" viewBox="0 0 14 14" stroke="currentColor" stroke-width="1.4"><path d="M1 1l12 12M13 1L1 13"/></svg></button></div>
+    <ol class="steps" id="steps"><li data-i18n="b.s1">Servicio</li><li data-i18n="b.s2">Fecha y hora</li><li data-i18n="b.s3">Tus datos</li><li data-i18n="b.s4">Confirmar</li></ol>
+  </div>
+  <div class="sheet-body" id="body"></div>
+  <div class="sheet-foot" id="foot">
+    <button class="back" type="button" id="back" data-i18n="b.back">Atrás</button>
+    <div class="picked" id="picked"></div>
+    <button class="btn" type="button" id="next" data-i18n="b.next">Siguiente</button>
+  </div>
+</aside>
+
+<script>
+/* ================= CONFIGURACIÓN — editar aquí ================= */
+const CONFIG = {
+  whatsapp: "14077288815",
+  // Horario de agenda — CONFIRMAR con la clienta. 0=domingo … 6=sábado. null = cerrado.
+  hours: {0:null, 1:["10:00","19:00"], 2:["10:00","19:00"], 3:["10:00","19:00"], 4:["10:00","19:00"], 5:["10:00","19:00"], 6:["09:00","17:00"]},
+  slotStep: 30,
+  monthsAhead: 3,
+  planPrice: 200, planMonths: 6
+};
+
+const ICONS = {
+  facial:`<ellipse pathLength="1" cx="60" cy="64" rx="29" ry="38"/><path pathLength="1" d="M31 58 C31 24 89 24 89 58"/><path pathLength="1" d="M43 60 q7 5 14 0"/><path pathLength="1" d="M63 60 q7 5 14 0"/><path pathLength="1" d="M52 84 q8 5 16 0 M52 84 q8 -3 16 0"/><path pathLength="1" d="M98 18 v14 M91 25 h14"/>`,
+  lash:`<path pathLength="1" d="M16 64 Q60 32 104 64 Q60 90 16 64Z"/><circle pathLength="1" cx="60" cy="63" r="13"/><circle pathLength="1" cx="60" cy="63" r="4"/><path pathLength="1" d="M28 55 l-6 -10 M40 49 l-4 -12 M53 46 l-2 -13 M67 46 l2 -13 M80 49 l4 -12 M92 55 l6 -10"/>`,
+  brow:`<path pathLength="1" d="M18 56 C38 30 78 28 102 46 C80 40 46 42 22 60Z"/><path pathLength="1" d="M30 80 Q60 62 90 80 Q60 94 30 80Z"/><circle pathLength="1" cx="60" cy="79" r="6"/>`,
+  wax:`<path pathLength="1" d="M70 22 C70 22 94 52 94 70 A24 24 0 0 1 46 70 C46 52 70 22 70 22Z"/><path pathLength="1" d="M58 72 A12 12 0 0 0 70 84"/><path pathLength="1" d="M22 100 L46 76"/><path pathLength="1" d="M18 96 l8 8"/>`,
+  med:`<path pathLength="1" d="M48 20 h24 M53 20 v14 l-9 11 v52 a6 6 0 0 0 6 6 h20 a6 6 0 0 0 6 -6 v-52 l-9 -11 v-14"/><path pathLength="1" d="M44 64 h32"/><path pathLength="1" d="M60 74 v14 M53 81 h14"/>`
+};
+
+const CATS = [
+  {id:"facial", es:"Tratamientos faciales", en:"Facial treatments", short:{es:"Faciales",en:"Facials"}, d:{es:"Limpiezas profundas con exosomas, ADN de salmón, PRP, Dermapen y más.",en:"Deep cleansing with exosomes, salmon DNA, PRP, Dermapen and more."}},
+  {id:"lash", es:"Extensiones de pestañas", en:"Eyelash extensions", short:{es:"Pestañas",en:"Lashes"}, d:{es:"Sets de volumen, híbridas y YY, retoques cada 2 semanas y lifting.",en:"Volume, hybrid and YY sets, 2-week fills and lifts."}},
+  {id:"brow", es:"Cejas", en:"Eyebrows", short:{es:"Cejas",en:"Brows"}, d:{es:"Diseño a la medida de tu rostro, henna y laminado.",en:"Design made for your face, henna and lamination."}},
+  {id:"wax", es:"Depilación corporal", en:"Body waxing", short:{es:"Depilación",en:"Waxing"}, d:{es:"Cera suave y eficaz para rostro y cuerpo.",en:"Gentle, effective wax for face and body."}},
+  {id:"med", es:"Especialista médico", en:"Medical specialist", short:{es:"Médico",en:"Medical"}, d:{es:"Botox, Lip Flip y terapia de péptidos con doctora licenciada.",en:"Botox, Lip Flip and peptide therapy with a licensed physician."}}
+];
+const GROUPS = {
+  facial:[{id:"adv",es:"Faciales avanzados",en:"Advanced facials",n:{es:"Limpieza profunda con activos de renovación.",en:"Deep cleansing with renewal actives."}},
+          {id:"ess",es:"Esenciales",en:"Essentials",n:{es:"Mantenimiento y luminosidad inmediata.",en:"Maintenance and instant glow."}}],
+  lash:[{id:"set",es:"Sets completos",en:"Full sets",n:{es:"Tu primer set o un cambio de estilo.",en:"Your first set or a new look."}},
+        {id:"fill",es:"Retoques",en:"Fills",n:{es:"Recomendados cada 14 días.",en:"Recommended every 14 days."}},
+        {id:"nat",es:"Pestaña natural",en:"Natural lashes",n:{es:"Lifting y retiro seguro.",en:"Lifts and safe removal."}}],
+  brow:[{id:"lam",es:"Laminado",en:"Lamination",n:{es:"Ceja peinada con forma que dura.",en:"Brushed-up brows that hold."}},
+        {id:"des",es:"Diseño y color",en:"Design & tint",n:{es:"Forma a la medida de tu rostro.",en:"Shape made for your face."}}],
+  wax:[{id:"all",es:"Zonas",en:"Areas",n:{es:"Precio por zona.",en:"Priced per area."}}],
+  med:[{id:"all",es:"Con doctora licenciada",en:"With a licensed physician",n:{es:"El precio se define en tu valoración.",en:"Pricing is set at your consultation."}}]
+};
+
+/* Cuidados: pares [es, en]. Tomados de las páginas de servicio de placidlux.online */
+const SUN = n => [`Evita el sol ${n}`,`Avoid sun ${n}`];
+const S = [
+ {id:"vip",c:"facial",g:"sig",plan:1,n:"VIP Glow with Rejusome & Dermapen",m:180,p:380,
+  s:["Microneedling con activos biointeligentes para un rejuvenecimiento profundo.","Microneedling with bio-intelligent actives for deep rejuvenation."],
+  l:["Combina microneedling con activos biointeligentes para estimular el colágeno y mejorar firmeza, textura, hidratación y luminosidad. Ideal para un rejuvenecimiento progresivo y profundo.","Combines microneedling with bio-intelligent actives to stimulate collagen, improve firmness, texture, hydration, and radiance. Ideal for progressive, deep rejuvenation."],
+  pre:[["Sin procedimientos estéticos 2 semanas antes","No aesthetic procedures 2 weeks prior"],["Sin exfoliantes ni retinoides 5 días antes","No exfoliants or retinoids 5 days before"],["Anticoagulantes: pausa 48 h antes, solo si tu médico lo aprueba","Anticoagulants: pause 48 h before, only if your doctor approves"],["Evita el sol al menos 5 días antes","Avoid sun at least 5 days before"]],
+  con:[["Rellenos o toxina botulínica recientes","Recent fillers or botulinum toxin"],["Inflamación o lesiones activas en la piel","Active skin inflammation or lesions"],["Alergia a factores de crecimiento","Allergy to growth factors"],["Condiciones autoinmunes no controladas","Uncontrolled autoimmune conditions"]],
+  post:[["Sin sol por 7 días o más","No sun for 7+ days"],["Sin maquillaje por 72 h","No makeup for 72 h"],["No toques ni manipules la zona","Don't touch the treated area"],["Sigue solo la rutina indicada","Follow only the prescribed routine"]],
+  rx:[["Inflamación leve hasta 48 h","Mild swelling up to 48 h"],["Enrojecimiento visible","Visible redness"],["Calor y sensibilidad en la zona","Warmth and sensitivity"]]},
+ {id:"hydradna",c:"facial",g:"adv",plan:1,n:"Hydra DNA: Cleansing & Cellular Renewal",m:120,p:220,
+  s:["Renovación celular e hidratación profunda.","Cell renewal and deep hydration."],
+  l:["Estimula la renovación celular con ingredientes biomiméticos que hidratan en profundidad y revitalizan. Ideal para piel opaca, seca o con primeros signos de envejecimiento.","Stimulates cell renewal with biomimetic ingredients that provide deep hydration and revitalization. Ideal for dull, dry skin or early signs of aging."],
+  pre:[["Sin láser, microdermoabrasión ni procedimientos invasivos 7 días antes","No laser, microdermabrasion or invasive procedures 7 days prior"],["Evita el sol al menos 5 días antes","Avoid sun at least 5 days before"],["Sin ácidos exfoliantes ni retinol 3 días antes","No exfoliating acids or retinol 3 days before"],["Llega bien hidratada","Arrive well hydrated"]],
+  con:[["Piel hiperreactiva","Hyperreactive skin"],["Láser, peelings fuertes o dermoabrasión recientes","Recent laser, strong peels or dermabrasion"],["Heridas o quemaduras en la zona","Open wounds or burns in the area"],["Alergia a mariscos (factores de crecimiento marinos)","Shellfish allergy (marine growth factors)"]],
+  post:[SUN("5 días"),["Sin exfoliación ni retinoides 5 días","No exfoliation or retinoids for 5 days"],["Evita el agua caliente en la zona","Keep hot water off the area"],["Hidratación intensa con productos suaves","Intensive hydration with gentle products"]],
+  rx:[["Descamación leve","Mild flaking"],["Tirantez o enrojecimiento temporal","Temporary tightness or redness"],["Picazón leve","Slight itching"]]},
+ {id:"bioxome",c:"facial",g:"adv",plan:1,n:"Cleansing with Bioxome (Vegan)",m:120,p:230,
+  s:["Activos veganos para piel sensible o reactiva.","Vegan actives for sensitive or reactive skin."],
+  l:["Con activos biotecnológicos veganos, repara, calma y fortalece la piel sensible o reactiva. Libre de crueldad animal y muy eficaz.","With biotechnological vegan actives, this treatment repairs, soothes, and strengthens sensitive or reactive skin. Cruelty-free and highly effective."],
+  pre:[["Sin productos abrasivos o astringentes 3 días antes","No abrasive or astringent products 3 days prior"],SUN("directo 3 días antes"),["Sin mascarillas purificantes ni exfoliantes","No purifying masks or exfoliants"],["No pruebes productos nuevos sin guía","Don't test new products without guidance"]],
+  con:[["Alergia a componentes vegetales desconocidos","Allergy to unknown plant components"],["Brotes activos o heridas abiertas","Active breakouts or open wounds"],["Tratamientos con ácidos recientes","Recent acid treatments"]],
+  post:[["Sin exfoliantes 3 días","No exfoliants for 3 days"],SUN("3 días"),["Hidrata dos veces al día","Moisturize twice daily"],["Evita maquillaje pesado","Avoid heavy makeup"]],
+  rx:[["Sensación de calor","Warm sensation"],["Inflamación leve temporal","Mild temporary inflammation"],["Leve enrojecimiento o picazón","Slight redness or itching"]]},
+ {id:"exo",c:"facial",g:"adv",plan:1,n:"Facial Cleansing + Exosomes",m:120,p:250,note:["Resultados óptimos tras 2–3 sesiones.","Best results after 2–3 sessions."],
+  s:["Tecnología celular para reparación, luminosidad y firmeza.","Cellular technology for repair, radiance and firmness."],
+  l:["Reprograma tu piel con exosomas, una tecnología celular avanzada que promueve la reparación, la luminosidad y la firmeza.","Reprogram your skin with exosomes, an advanced cellular technology that promotes repair, radiance, and firmness."],
+  pre:[["Suspende productos irritantes 5 días antes","Stop irritating products 5 days prior"],["Sin inyecciones ni procedimientos estéticos 10 días antes","No injections or aesthetic procedures within 10 days"],SUN("al menos 5 días antes"),["Sin ácido hialurónico tópico 48 h antes","No topical hyaluronic acid 48 h before"]],
+  con:[["Embarazo o lactancia","Pregnancy or breastfeeding"],["Botox o rellenos en los últimos 10 días","Botox or fillers in the last 10 days"],["Piel muy reactiva o alergias no controladas","Highly reactive skin or uncontrolled allergies"],["Uso activo de ácidos o retinoides","Active use of acids or retinoids"]],
+  post:[["Sin exfoliantes ni ácidos 5 días","No exfoliants or acids for 5 days"],SUN("al menos 5 días"),["No toques ni frotes la zona","Don't touch or rub the area"],["Hidratación intensa diaria","Intensive daily hydration"]],
+  rx:[["Ardor o picazón leve","Mild burning or itching"],["Calor o inflamación ligera","Warmth or slight inflammation"],["Rara vez, enrojecimiento prolongado","Rarely, prolonged redness"]]},
+ {id:"micro",c:"facial",g:"adv",plan:1,n:"Deep Facial Cleansing with Custom Microneedling",m:120,p:250,
+  s:["Limpieza profunda y microneedling a la medida.","Deep cleansing and tailored microneedling."],
+  l:["Limpieza profunda y microneedling personalizados según las necesidades de tu piel. Después de evaluarla, elijo los productos y el enfoque más adecuados para ayudarte a lograr el mejor resultado.","A personalized deep-cleansing and microneedling treatment tailored to your skin's specific needs. After evaluating your skin, I'll select the most suitable products and approach to help you achieve the best results."]},
+ {id:"salmon",c:"facial",g:"adv",plan:1,n:"Facial Cleansing + Salmon DNA",m:150,p:250,note:["Resultados tras 2–3 sesiones. No recomendado si tienes alergia a mariscos.","Results after 2–3 sessions. Not recommended with seafood allergy."],
+  s:["ADN marino para elasticidad, hidratación y firmeza.","Marine DNA for elasticity, hydration and firmness."],
+  l:["La biotecnología de ADN marino fortalece la piel desde adentro y mejora elasticidad, hidratación y firmeza. Perfecta para combatir signos de envejecimiento y devolverle vitalidad a la piel.","Marine DNA biotechnology strengthens skin from within, improving elasticity, hydration, and firmness. Perfect for combating signs of aging and restoring skin vitality."],
+  pre:[["Suspende despigmentantes o ácidos 5 días antes","Stop depigmenting agents or acids 5 days prior"],SUN("al menos 5 días antes"),["No estrenes productos sin probarlos","Don't start new products untested"],["Sin tratamientos agresivos ni exfoliación reciente","No recent aggressive treatments or exfoliation"]],
+  con:[["Alergia a productos marinos","Allergy to marine-derived products"],["Heridas o procedimientos agresivos recientes","Open wounds or recent aggressive procedures"],["Despigmentantes fuertes","Strong depigmenting products"],["Acné inflamatorio severo","Severe inflammatory acne"]],
+  post:[SUN("5 días"),["Evita el agua caliente en la zona","Keep hot water off the area"],["Sin ácidos ni retinoides 7 días","No acids or retinoids for 7 days"],["Hidratación y protector solar","Hydration and sunscreen"]],
+  rx:[["Irritación o enrojecimiento leve","Mild irritation or redness"],["Picazón las primeras horas","Itching in the first hours"],["Inflamación si hay reacción alérgica leve","Swelling if a mild allergic response occurs"]]},
+ {id:"botolux",c:"facial",g:"adv",plan:1,n:"Cleansing with Botolux",m:150,p:250,
+  s:["Efecto lifting sin agujas.","Needle-free lifting effect."],
+  l:["Efecto lifting sin agujas. Esta fórmula cosmética tipo “Botox” relaja las líneas finas, mejora la firmeza y redefine el contorno facial.","A needle-free lifting effect. This cosmetic “Botox-like” formula relaxes fine lines, improves firmness, and redefines facial contours."],
+  pre:[["Sin péptidos botulínicos tópicos 72 h antes","No topical botulinum peptides 72 h prior"],["Sin sol ni calor intenso 3 días antes","No sun or intense heat 3 days before"],["Sin peelings ni exfoliación","No peels or exfoliation"],["Suspende productos que te sensibilicen","Stop sensitizing products"]],
+  con:[["Alergia a péptidos botulínicos tópicos","Allergy to topical botulinum peptides"],["Infecciones o heridas en la zona","Infections or wounds in the area"],["Piel sensible","Sensitive skin conditions"]],
+  post:[SUN("3 días"),["No frotes la zona","Don't rub the area"],["Mantente bien hidratada","Stay well hydrated"],["Espera 72 h antes de usar otros péptidos","Wait 72 h before other peptides"]],
+  rx:[["Ardor leve","Mild burning"],["Descamación ligera","Slight flaking"],["Tirantez facial leve","Mild facial tightness"]]},
+ {id:"prp",c:"facial",g:"adv",plan:1,n:"Facial Cleansing + PRP (Plasma)",m:180,p:300,
+  s:["Colágeno y efecto lifting progresivo, 100% natural.","Collagen and a progressive lift, all natural."],
+  l:["Un impulso natural y potente. El PRP estimula el colágeno, mejora la calidad de la piel y aporta un efecto lifting progresivo. Ideal para un rejuvenecimiento no invasivo.","A natural and powerful boost. PRP stimulates collagen, improves skin quality, and provides a progressive lifting effect. Ideal for non-invasive rejuvenation."],
+  pre:[["Aspirina, ibuprofeno y antiinflamatorios: pausa 48 h antes si tu médico lo aprueba","Aspirin, ibuprofen, NSAIDs: pause 48 h before if your doctor approves"],["Sin alcohol 24 h antes","No alcohol 24 h before"],["Sin ácido retinoico o glicólico 3 días antes","No retinoic or glycolic acid 3 days before"],["Sin sol ni calor intenso 5 días antes","No sun or intense heat 5 days before"]],
+  con:[["Trastornos de coagulación","Blood clotting disorders"],["Uso de anticoagulantes o antiinflamatorios","Anticoagulant or anti-inflammatory use"],["Infecciones activas o acné severo","Active infections or severe acne"],["Embarazo o lactancia sin aprobación médica","Pregnancy or lactation without medical approval"]],
+  post:[SUN("5–7 días"),["Sin maquillaje 48–72 h","No makeup for 48–72 h"],["Sin alcohol ni ejercicio intenso 24 h","No alcohol or strenuous exercise for 24 h"],["Usa productos regenerativos profesionales","Use professional regenerative products"]],
+  rx:[["Moretón leve donde se extrae la sangre","Mild bruising at the draw site"],["Ardor temporal","Temporary burning"],["Enrojecimiento moderado 24–48 h","Moderate redness for 24–48 h"]]},
+ {id:"hydro",c:"facial",g:"ess",plan:1,n:"HydroFacial",m:90,p:150,
+  s:["Succión, hidratación y exfoliación sin irritar.","Suction, hydration and exfoliation without irritation."],
+  l:["Renueva tu piel desde adentro con una limpieza avanzada que combina succión, hidratación y exfoliación sin irritar. Ideal para piel congestionada, opaca o con poros visibles. Deja el rostro al instante limpio, suave y radiante.","Renew your skin from deep within with this advanced cleansing that combines suction, hydration, and exfoliation without irritation. Ideal for congested, dull skin or visible pores. Leaves your face instantly clean, soft, and radiant."],
+  pre:[["Llega sin maquillaje pesado","Arrive without heavy makeup"],["Suspende la exfoliación 48 h antes","Stop exfoliating 48 h before"],SUN("3 días antes")],
+  con:[["Piel extremadamente sensible o quemada por el sol","Extremely sensitive or sunburned skin"],["Heridas abiertas","Open wounds"],["Infecciones activas","Active infections"]],
+  post:[SUN("3 días"),["Sin maquillaje 24 h","No makeup for 24 h"],["Protector solar cada 2–3 horas","Sunscreen every 2–3 hours"],["Hidratación con productos suaves","Hydrate with gentle products"]],
+  rx:[["Enrojecimiento leve","Mild redness"],["Tirantez","Tightness"],["Descamación ligera","Slight flaking"]]},
+ {id:"peel",c:"facial",g:"ess",n:"Facial + Customized Peel",m:120,p:180,
+  s:["Exfoliación, renovación y tono más uniforme.","Exfoliation, renewal and a more even tone."],
+  l:["Limpieza facial • Exfoliación • Renovación de la piel • Luminosidad • Mejora la textura y el tono irregular.","Facial cleansing • Exfoliation • Skin renewal • Brightening • Improves texture and uneven skin tone."]},
+ {id:"express",c:"facial",g:"ess",n:"Express Facial",m:40,p:70,
+  s:["Facial rápido de mantenimiento.","Quick maintenance facial."],
+  l:["Facial rápido • Mantenimiento básico • Limpia y refresca.","Quick facial • Basic maintenance • Cleanse & refresh."]},
+ {id:"lips",c:"facial",g:"ess",plan:1,n:"Lip Hydration with Dermapen",m:35,p:60,
+  s:["Labios hidratados y con volumen sutil, sin relleno.","Hydrated, subtly fuller lips, no filler."],
+  l:["Rehidrata, da un volumen sutil y mejora la textura de los labios con técnicas no invasivas. Perfecto para labios secos o deshidratados, sin necesidad de relleno.","Rehydrates, gently plumps, and improves lip texture with non-invasive techniques. Perfect for dry or dehydrated lips, no filler needed."],
+  pre:[["Anticoagulantes: pausa 24 h antes solo si tu médico lo aprueba","Blood thinners: pause 24 h before only if your doctor approves"],SUN("5 días antes"),["Sin retinoides, exfoliantes ni ácidos 5 días antes","No retinoids, exfoliants or acids 5 days before"],["Sin depilación facial la semana anterior","No facial waxing the week before"]],
+  con:[["Uso activo de anticoagulantes","Active anticoagulant use"],["Acné quístico o activo","Cystic or active acne"],["Herpes o infecciones en la piel","Herpes or skin infections"],["Embarazo sin autorización médica","Pregnancy without medical clearance"]],
+  post:[SUN("5–7 días"),["Sin ejercicio intenso ni sudor 48 h","No intense exercise or sweating for 48 h"],["Sin maquillaje ni activos 72 h","No makeup or actives for 72 h"],["Protector solar SPF 50 obligatorio","SPF 50 sunscreen is a must"]],
+  rx:[["Enrojecimiento hasta 48 h","Redness up to 48 h"],["Microcanales o puntitos de sangrado","Micro-channels or pinpoint bleeding"],["Sensibilidad e inflamación temporal","Temporary sensitivity and swelling"]]},
+ {id:"porcelain",c:"facial",g:"ess",plan:1,n:"Porcelain Facial",m:60,p:50,
+  s:["Efecto “piel de porcelana” al instante.","Instant “porcelain skin” effect."],
+  l:["Tratamiento flash que deja la piel suave, hidratada y con efecto “piel de porcelana”. Perfecto antes de un evento o para mantener un look pulido y fresco. Luminosidad inmediata.","A flash treatment that leaves skin smooth, hydrated, and with a “porcelain skin” effect. Perfect before events or for maintaining a polished, fresh look. Instantly luminous skin."],
+  pre:[["Sin exfoliantes químicos o físicos 5 días antes","No chemical or physical exfoliants 5 days prior"],["Sin depilación facial 3 días antes","No facial waxing 3 days before"],["Limita el sol 5 días antes","Limit sun 5 days before"],["Evita productos con alcohol y fragancias fuertes","Avoid alcohol-based products and strong fragrances"]],
+  con:[["Rosácea activa o piel sensible","Active rosacea or sensitive skin"],["Exfoliante químico reciente","Recent chemical exfoliant"],["Heridas o brotes activos","Open wounds or active breakouts"]],
+  post:[["Sin productos abrasivos 5 días","No abrasive products for 5 days"],["Solo cuidado suave y calmante","Gentle, soothing care only"],SUN("5 días"),["Sin otras exfoliaciones","No other exfoliation"]],
+  rx:[["Enrojecimiento temporal","Temporary redness"],["Descamación visible","Visible flaking"],["Tirantez","Tightness"]]},
+ {id:"member",c:"facial",g:"ess",plan:1,member:1,n:"Premium Facial Membership",m:120,p:null,pl:["$200 / mes","$200 / mo"],
+  s:["Un facial al mes durante 6 meses.","One facial a month for 6 months."],
+  l:["Plan personalizado con un facial al mes adaptado a lo que tu piel necesita: limpieza profunda, regeneración, hidratación, ADN, PRP y más.","A personalized plan including one monthly facial tailored to your skin's needs: deep cleansing, regeneration, hydration, DNA, PRP, and more."],
+  pre:[["Sigue las indicaciones del facial de cada mes","Follow each month's facial pre-care"],["Sin productos irritantes o exfoliantes 3 días antes","No irritating or exfoliating products 3 days before"],["Avísanos de cualquier cambio médico","Tell us about any medical changes"],["Evita el sol directo antes de tu cita","Avoid direct sun before your visit"]]},
+ {id:"volume",c:"lash",g:"set",n:"Volume Lashes",m:150,p:120,s:["Mirada densa y definida.","Dense, defined lashes."],l:["Set completo de volumen para una mirada densa y definida.","A full volume set for dense, defined lashes."]},
+ {id:"hybrid",c:"lash",g:"set",n:"Hybrid Lashes",m:180,p:110,s:["Clásicas + volumen, natural pero intenso.","Classic + volume, natural yet intense."],l:["La mezcla perfecta entre clásicas y volumen. Definición con suavidad, ideal para un efecto natural pero intensificado.","The perfect mix between classic and volume. Definition with softness, ideal for a natural yet intensified effect."]},
+ {id:"yy",c:"lash",g:"set",n:"Hawaiian YY Lashes",m:180,p:100,s:["Volumen glamoroso sin perder naturalidad.","Glamorous volume that still looks natural."],l:["Extensiones con efecto denso y glamoroso. Las pestañas YY dan volumen sin perder naturalidad. Perfectas para realzar tu mirada con un toque definido y elegante.","Extensions with a dense, glamorous effect. YY lashes create volume without losing naturalness. Perfect for enhancing your gaze with defined, elegant flair."]},
+ {id:"volfill",c:"lash",g:"fill",n:"Volume Lash Fill (2 weeks)",m:150,p:85,s:["Retoque de tu set de volumen.","Fill for your volume set."],l:["Retoque recomendado cada 14 días para mantener el diseño de volumen, rellenar espacios y asegurar mayor duración.","Recommended touch-up every 14 days to keep your volume design, fill gaps and extend wear."]},
+ {id:"hybfill",c:"lash",g:"fill",req:1,n:"Hybrid Lash Fill (2 weeks)",m:120,p:85,s:["Conserva forma y frescura del diseño híbrido.","Keeps your hybrid design fresh."],l:["Retoque que conserva la forma, estructura y frescura del diseño híbrido original.","A touch-up that preserves the shape, structure, and freshness of the original hybrid design."]},
+ {id:"yyfill",c:"lash",g:"fill",n:"YY Lash Fill (2 weeks)",m:120,p:80,s:["Mantiene tu diseño YY.","Keeps your YY design."],l:["Retoque recomendado cada 14 días para mantener el diseño, rellenar espacios y asegurar mayor duración.","Recommended touch-up every 14 days to maintain design, fill gaps, and ensure optimal longevity."]},
+ {id:"lift",c:"lash",g:"nat",n:"Lash Lift",m:45,p:85,s:["Curvatura y elevación de tu pestaña natural.","Curl and lift for your natural lashes."],l:["Curvatura y elevación de tu pestaña natural, sin extensiones.","Curl and lift for your natural lashes, no extensions."]},
+ {id:"removal",c:"lash",g:"nat",n:"Lash Removal",m:30,p:20,s:["Retiro seguro de extensiones.","Safe extension removal."],l:["Retiro profesional y seguro de extensiones sin dañar tus pestañas naturales.","Professional, safe removal of extensions without damaging natural lashes."]},
+ {id:"lamfull",c:"brow",g:"lam",n:"Brow Lamination + Design, Wax & Tint",m:60,p:100,s:["Servicio completo de cejas.","The complete brow service."],l:["Servicio completo de cejas: diseño, laminado, tinte y depilación.","Complete brow service: design, lamination, tint and waxing."]},
+ {id:"lam",c:"brow",g:"lam",n:"Eyebrow Lamination",m:30,p:85,s:["Solo laminado.","Lamination only."],l:["Laminado de ceja (solo).","Brow lamination only."]},
+ {id:"henna",c:"brow",g:"des",n:"Design + Waxing + Henna",m:55,p:50,s:["Forma, definición y color temporal.","Shape, definition and temporary color."],
+  l:["Transforma tus cejas con forma, definición y pigmentación temporal. La henna rellena espacios para un acabado más definido.","Transform your brows with shape, definition, and temporary pigmentation. Henna fills gaps for a more defined finish."],
+  pre:[["Prueba de alergia 24–48 h antes","Allergy test 24–48 h before"],["No apliques aceites en las cejas","Don't apply oils to the brow area"]],
+  con:[["Alergia a tintes vegetales","Allergy to plant-based dyes"],["Dermatitis o infección en la zona","Dermatitis or infection in the area"]],
+  rx:[["Reacción alérgica al tinte vegetal","Allergic reaction to plant dye"],["Irritación o enrojecimiento","Irritation or redness"],["Desvanecimiento irregular del color","Uneven color fading"]]},
+ {id:"design",c:"brow",g:"des",n:"Brow Design & Waxing",m:40,p:30,s:["Diseño a tu medida con depilación precisa.","Custom shape with precise waxing."],
+  l:["Diseño de cejas a la medida de tu rostro, con depilación precisa.","Custom brow shaping tailored to your face, with precise waxing."],
+  pre:[["Evita el sol antes del procedimiento","Avoid sun before the procedure"]],post:[["Sin maquillaje en la zona 24 h","No makeup on the area for 24 h"]],
+  con:[["Heridas abiertas en la zona","Open wounds in the area"],["Alergia a la cera","Wax allergy"]],rx:[["Enrojecimiento temporal","Temporary redness"],["Irritación leve","Mild irritation"]]},
+ {id:"hennaonly",c:"brow",g:"des",n:"Henna Tint Only",m:30,p:25,s:["Color semipermanente para tus cejas.","Semi-permanent brow color."],
+  l:["Color semipermanente que realza la forma natural de tus cejas.","Semi-permanent coloring to enhance your brows' natural shape."],
+  pre:[["Prueba de alergia obligatoria","Allergy test is required"],["No apliques aceites en las cejas","Don't apply oils to the brow area"]],rx:[["Irritación leve","Mild irritation"],["Color irregular si no sigues los cuidados","Uneven color if aftercare isn't followed"]]},
+ {id:"browwax",c:"brow",g:"des",n:"Eyebrow Waxing Only",m:30,p:25,s:["Limpieza y definición de tu forma natural.","Clean up your natural shape."],
+  l:["Cera o pinza para definir y limpiar la forma natural de tus cejas.","Waxing or tweezing to define and clean up your brows' natural shape."],
+  pre:[["Evita el sol antes del procedimiento","Avoid sun before the procedure"],["Sin exfoliantes 48 h antes","No exfoliants 48 h before"],["Avísanos si usas retinoides o tienes piel sensible","Tell us if you use retinoids or have sensitive skin"]],
+  con:[["Heridas o quemaduras en la zona","Open wounds or burns in the area"],["Piel extremadamente sensible","Extremely sensitive skin"],["Alergia a la cera o materiales","Allergy to wax or materials"]],rx:[["Enrojecimiento temporal","Temporary redness"],["Irritación leve","Mild irritation"],["Sensibilidad en la zona","Sensitivity in the area"]]},
+ {id:"fullleg",c:"wax",g:"all",n:"Full Leg Wax",m:50,p:65,s:["De muslo a tobillo.","Thigh to ankle."],l:["De muslo a tobillo: elimina todo el vello para una piel uniforme y sedosa.","Thigh to ankle—removes all hair for even, silky skin."],
+  pre:[["No exfolies el día de tu cita","Don't exfoliate the day of your visit"],["Evita el sol 24 h antes y después","Avoid sun 24 h before and after"]],rx:[["Irritación temporal","Temporary irritation"],["Posibles vellos encarnados","Possible ingrown hairs"]]},
+ {id:"halfleg",c:"wax",g:"all",n:"Half Leg Wax (Knee Down)",m:30,p:40,s:["De la rodilla hacia abajo.","Knee down."],l:["Una opción práctica para sentirte cómoda y fresca.","A practical option for comfort and freshness."],
+  pre:[["No exfolies el día de tu cita","Don't exfoliate the day of your visit"],["Evita el sol 24 h antes y después","Avoid sun 24 h before and after"]],rx:[["Irritación leve","Mild irritation"],["Posibles vellos encarnados","Possible ingrown hairs"]]},
+ {id:"under",c:"wax",g:"all",n:"Underarms",m:30,p:35,s:["Suavidad más limpia y duradera.","Softer, longer-lasting smoothness."],l:["Cera para una suavidad más limpia y duradera.","Waxing for softer, cleaner, longer-lasting smoothness."],
+  post:[["Sin desodorantes con alcohol después","No alcohol-based deodorant afterward"],["Sin actividad física intensa 12 h","No strenuous activity for 12 h"]],rx:[["Irritación o enrojecimiento leve","Mild irritation or redness"],["Posibles vellos encarnados","Possible ingrown hairs"]]},
+ {id:"lip",c:"wax",g:"all",n:"Upper Lip Wax",m:15,p:25,s:["Suave y eficaz.","Gentle and effective."],l:["Depilación suave y eficaz para una piel lisa y sin vello.","Gentle, effective hair removal for smooth, fuzz-free skin."],
+  pre:[["Evita el sol antes","Avoid sun beforehand"],["Sin cremas con ácidos antes","No acid-based creams beforehand"]],rx:[["Enrojecimiento temporal","Temporary redness"],["Ardor leve","Mild burning"],["Sensibilidad","Sensitivity"]]},
+ {id:"botox",c:"med",g:"all",med:1,n:"Botox",m:30,p:null,s:["Realizado por doctora licenciada.","Performed by a licensed physician."],l:["Botox realizado por doctora licenciada. El precio se personaliza en tu valoración.","Botox performed by a licensed physician. Pricing is personalized at your consultation."]},
+ {id:"lipflip",c:"med",g:"all",med:1,n:"Lip Flip",m:40,p:null,s:["Volumen, forma y definición natural.","Natural volume, shape and definition."],l:["Realza el volumen, la forma y la definición de los labios para un resultado equilibrado y natural.","Enhances lip volume, shape and definition for beautifully balanced, natural-looking results."]},
+ {id:"peptide",c:"med",g:"all",med:1,n:"Wellness & Peptide Therapy",m:30,p:null,s:["Programas de bienestar con péptidos.","Peptide wellness programs."],l:["Programas enfocados en control de peso, metabolismo, soporte muscular, energía, envejecimiento saludable, colágeno y salud de la piel, bienestar hormonal y sexual, estrés y estado de ánimo, recuperación y bienestar general.","Programs may focus on weight management, metabolism, muscle support, energy, healthy aging, collagen and skin health, hormonal and sexual wellness, stress and mood support, recovery, and overall well-being."]}
+];
+/* Incluidos en la membresía que no aparecen como servicio individual */
+const PLAN_EXTRA = [["Hand Hydration"],["Hand Hydration with PRP"]];
+
+const T = {
+  es:{"nav.menu":"Servicios","nav.plan":"Membresía","nav.founder":"Fundadora","nav.visit":"Visítanos","cta.book":"Reservar","cta.bookLong":"Reservar mi cita","cta.menu":"Ver servicios","cta.wa":"Escríbenos",
+    "hero.eyebrow":"Spa facial · Dr. Phillips, Orlando","hero.l1":"Relájate.","hero.l2":"Renueva.","hero.l3":"Revive.","hero.quote":"“Un spa creado para transformar la cotidianidad en una experiencia de lujo y tranquilidad.”","hero.role":"Fundadora",
+    "meta.1":"Esteticista licenciada","meta.2":"Faciales avanzados · Cejas · Pestañas","meta.3":"Especialista médico en sitio",
+    "exp.eyebrow":"La experiencia","exp.title":"Tu pausa, <em>diseñada</em> con calma","exp.lede":"Llegas, respiras y te vas con una piel que se siente cuidada. Sin prisa, sin ruido.",
+    "r1.v":"Relájate","r1.t":"Llegada y diagnóstico","r1.p":"Evaluamos tu piel y elegimos los productos y el enfoque que mejor te funcionan.",
+    "r2.v":"Renueva","r2.t":"Tratamiento","r2.p":"Activos de alta calidad, tecnología estética y productos naturales.",
+    "r3.v":"Revive","r3.t":"Cuidado en casa","r3.p":"Te vas con tus indicaciones de cuidado y la fecha ideal para tu próxima sesión.",
+    "menu.eyebrow":"Nuestros servicios","menu.title":"Elige tu <em>ritual</em>","menu.lede":"Elige una categoría. Toca “Detalles” para ver cómo prepararte y los cuidados de cada tratamiento.",
+    "plan.eyebrow":"Membresía","plan.title":"Tu piel, <em>cada mes</em>","plan.lede":"Un facial al mes adaptado a lo que tu piel necesita: limpieza profunda, regeneración, hidratación, ADN, PRP y más.",
+    "plan.per":"al mes","plan.f1v":"1 facial","plan.f1":"cada mes","plan.f2v":"6 meses","plan.f2":"de duración","plan.f3v":"13","plan.f3":"tratamientos a elegir",
+    "plan.p":"Incluye faciales que normalmente cuestan hasta $380. Te acompañamos mes a mes para mantener tu piel en su mejor momento todo el año.",
+    "plan.cta":"Empezar mi membresía","plan.ask":"Preguntar","plan.inc":"Elige cada mes entre","plan.fine":"Precio regular tachado. La membresía se cobra mensualmente durante 6 meses.","plan.incl":"Incluido",
+    "f.eyebrow":"La fundadora","f.title":"Belleza que nace de la <em>calma</em>",
+    "f.p1":"Soy Dannitza Pernia, esteticista licenciada con experiencia en estética facial y formación en ciencias de la salud. Por eso entiendo el cuidado de la piel desde la belleza y desde el bienestar.",
+    "f.p2":"En Placid Lux me especializo en faciales avanzados que combinan activos de alta calidad, tecnología estética y productos naturales. También ofrezco diseño de cejas y extensiones de pestañas con un enfoque moderno y lujoso.",
+    "f.p3":"Mi meta es crear un espacio donde cada clienta se sienta vista, cuidada y segura en su propia piel.",
+    "c1":"Esteticista licenciada","c2":"Ciencias de la salud","c3":"Faciales avanzados","c4":"Cejas y pestañas",
+    "q.text":"Placid Lux es mi lugar para relajarme y cuidarme. Siempre es una experiencia tranquila, profesional y personalizada. Salgo de cada visita renovada y segura.","q.who":"Clienta",
+    "v.eyebrow":"Visítanos","v.title":"Te esperamos en <em>Dr. Phillips</em>","v.lede":"Atención con cita previa. Reserva en línea y te confirmamos por WhatsApp.","v.addr":"Dirección","v.contact":"Contacto","v.follow":"Síguenos","copy":"Copiar","copyPhone":"Copiar teléfono","copied":"Copiado",
+    "cat.from":"Desde","cat.consult":"Previa valoración","sig":"Tratamiento insignia","inplan":"En membresía","req":"Sujeto a aprobación","details":"Detalles","perso":"Personalizado",
+    "d.pre":"Antes de tu cita","d.con":"No recomendado si","d.post":"Después del tratamiento","d.rx":"Reacciones temporales posibles","d.book":"Reservar este tratamiento","d.none":"Te damos todas las indicaciones al confirmar tu cita.",
+    "b.title":"Reserva tu cita","b.s1":"Servicio","b.s2":"Fecha y hora","b.s3":"Tus datos","b.s4":"Confirmar","b.back":"Atrás","b.next":"Siguiente","b.pick":"Elige un servicio","b.which":"¿Qué te gustaría reservar?",
+    "b.cal":"Elige fecha y hora","b.tz":"Horario de Orlando (hora del Este)","b.am":"Mañana","b.pm":"Tarde","b.noslots":"No hay horarios disponibles este día.","b.pickday":"Elige un día disponible en el calendario.",
+    "b.with":"Con","b.dannitza":"Dannitza Pernia","b.doctor":"Doctora licenciada","b.where":"7932 W Sand Lake Rd, Ste 306",
+    "b.client":"Detalles del cliente","b.fname":"Nombre","b.lname":"Apellido","b.email":"Email","b.phone":"Teléfono","b.msg":"Agrega un mensaje (opcional)","b.msgPh":"Alergias, piel sensible, preferencias…","b.first":"Es mi primera visita",
+    "b.err":"Completa este campo.","b.errEmail":"Escribe un email válido.","b.errPhone":"Escribe un teléfono de al menos 10 dígitos.",
+    "b.payT":"Forma de pago","b.pay1":"Pagar en el local","b.pay1s":"Pagas el día de tu cita.","b.pay2":"Usar mi membresía","b.pay2s":"Premium Facial Membership · se descuenta 1 facial del mes.","b.pay3":"Empezar la membresía","b.pay3s":"$200 al mes durante 6 meses.",
+    "b.review":"Revisa tu reserva","b.consent":"Leí las indicaciones de este tratamiento y confirmo que no tengo contraindicaciones.","b.consentNone":"Confirmo que mis datos son correctos.",
+    "b.send":"Enviar reserva por WhatsApp","b.policy":"Tu cita queda confirmada cuando el equipo te responda por WhatsApp.",
+    "b.doneT":"Solicitud enviada","b.doneP":"Si WhatsApp no se abrió, copia el resumen y envíalo al (407) 728-8815.","b.copyS":"Copiar resumen","b.new":"Nueva reserva","b.reopen":"Abrir WhatsApp de nuevo",
+    "r.service":"Servicio","r.date":"Fecha","r.time":"Hora","r.dur":"Duración","r.staff":"Con","r.client":"Cliente","r.pay":"Pago","r.total":"Total","first":"Primera visita","yes":"Sí","no":"No",
+    "wa.hi":"Hola Placid Lux ✨ Quiero reservar una cita:","wa.msg":"Mensaje","wa.req":"(solicitud sujeta a aprobación)"},
+  en:{"nav.menu":"Services","nav.plan":"Membership","nav.founder":"Founder","nav.visit":"Visit","cta.book":"Book","cta.bookLong":"Book my visit","cta.menu":"View services","cta.wa":"Message us",
+    "hero.eyebrow":"Facial spa · Dr. Phillips, Orlando","hero.l1":"Relax.","hero.l2":"Renew.","hero.l3":"Revive.","hero.quote":"“A spa created to turn everyday life into an experience of luxury and calm.”","hero.role":"Founder",
+    "meta.1":"Licensed esthetician","meta.2":"Advanced facials · Brows · Lashes","meta.3":"Medical specialist on site",
+    "exp.eyebrow":"The experience","exp.title":"Your pause, <em>designed</em> with calm","exp.lede":"You arrive, you breathe, and you leave with skin that feels cared for. No rush, no noise.",
+    "r1.v":"Relax","r1.t":"Arrival & consultation","r1.p":"We evaluate your skin and choose the products and approach that work best for you.",
+    "r2.v":"Renew","r2.t":"Treatment","r2.p":"High-quality actives, aesthetic technology and natural products.",
+    "r3.v":"Revive","r3.t":"Home care","r3.p":"You leave with your aftercare steps and the ideal date for your next session.",
+    "menu.eyebrow":"Our services","menu.title":"Choose your <em>ritual</em>","menu.lede":"Pick a category. Tap “Details” to see how to prepare and how to care for your skin after each treatment.",
+    "plan.eyebrow":"Membership","plan.title":"Your skin, <em>every month</em>","plan.lede":"One monthly facial tailored to your skin's needs: deep cleansing, regeneration, hydration, DNA, PRP and more.",
+    "plan.per":"per month","plan.f1v":"1 facial","plan.f1":"every month","plan.f2v":"6 months","plan.f2":"plan length","plan.f3v":"13","plan.f3":"treatments to choose from",
+    "plan.p":"Includes facials that usually cost up to $380. We guide you month by month to keep your skin at its best all year.",
+    "plan.cta":"Start my membership","plan.ask":"Ask us","plan.inc":"Choose each month from","plan.fine":"Regular price shown crossed out. Billed monthly for 6 months.","plan.incl":"Included",
+    "f.eyebrow":"The founder","f.title":"Beauty that grows from <em>calm</em>",
+    "f.p1":"I’m Dannitza Pernia, a licensed esthetician with experience in facial aesthetics and a background in health sciences, so I understand skin care from both a beauty and a wellness perspective.",
+    "f.p2":"At Placid Lux I specialize in advanced facials that combine high-quality active ingredients, aesthetic technology and natural products. I also offer premium brow design and lash extensions with a modern, luxurious approach.",
+    "f.p3":"My goal is to create a space where every client feels seen, cared for and confident in her own skin.",
+    "c1":"Licensed esthetician","c2":"Health sciences","c3":"Advanced facials","c4":"Brows & lashes",
+    "q.text":"Placid Lux Esthetic is my go-to for relaxation and self-care. The experience is always soothing, professional, and personalized. I leave every visit feeling refreshed and confident.","q.who":"Client",
+    "v.eyebrow":"Visit us","v.title":"Find us in <em>Dr. Phillips</em>","v.lede":"By appointment. Book online and we confirm on WhatsApp.","v.addr":"Address","v.contact":"Contact","v.follow":"Follow","copy":"Copy","copyPhone":"Copy phone","copied":"Copied",
+    "cat.from":"From","cat.consult":"By consultation","sig":"Signature treatment","inplan":"In membership","req":"Needs approval","details":"Details","perso":"Custom",
+    "d.pre":"Before your visit","d.con":"Not recommended if","d.post":"After your treatment","d.rx":"Possible temporary reactions","d.book":"Book this treatment","d.none":"We share every instruction when we confirm your visit.",
+    "b.title":"Book your visit","b.s1":"Service","b.s2":"Date & time","b.s3":"Your details","b.s4":"Confirm","b.back":"Back","b.next":"Next","b.pick":"Choose a service","b.which":"What would you like to book?",
+    "b.cal":"Choose a date and time","b.tz":"Orlando time (Eastern)","b.am":"Morning","b.pm":"Afternoon","b.noslots":"No times available this day.","b.pickday":"Pick an available day on the calendar.",
+    "b.with":"With","b.dannitza":"Dannitza Pernia","b.doctor":"Licensed physician","b.where":"7932 W Sand Lake Rd, Ste 306",
+    "b.client":"Client details","b.fname":"First name","b.lname":"Last name","b.email":"Email","b.phone":"Phone","b.msg":"Add a message (optional)","b.msgPh":"Allergies, sensitive skin, preferences…","b.first":"This is my first visit",
+    "b.err":"Fill in this field.","b.errEmail":"Enter a valid email.","b.errPhone":"Enter a phone number with at least 10 digits.",
+    "b.payT":"Payment","b.pay1":"Pay in person","b.pay1s":"You pay on the day of your visit.","b.pay2":"Use my membership","b.pay2s":"Premium Facial Membership · uses this month's facial.","b.pay3":"Start the membership","b.pay3s":"$200 per month for 6 months.",
+    "b.review":"Review your booking","b.consent":"I read this treatment's instructions and confirm I have no contraindications.","b.consentNone":"I confirm my details are correct.",
+    "b.send":"Send booking on WhatsApp","b.policy":"Your visit is confirmed once the team replies on WhatsApp.",
+    "b.doneT":"Request sent","b.doneP":"If WhatsApp didn't open, copy the summary and send it to (407) 728-8815.","b.copyS":"Copy summary","b.new":"New booking","b.reopen":"Open WhatsApp again",
+    "r.service":"Service","r.date":"Date","r.time":"Time","r.dur":"Duration","r.staff":"With","r.client":"Client","r.pay":"Payment","r.total":"Total","first":"First visit","yes":"Yes","no":"No",
+    "wa.hi":"Hi Placid Lux ✨ I’d like to book an appointment:","wa.msg":"Message","wa.req":"(request needs approval)"}
+};
+
+let lang="es";
+try{ const s=localStorage.getItem("plx-lang"); if(s==="en"||s==="es") lang=s; }catch(e){}
+const L = () => lang==="es"?0:1;
+const t = k => (T[lang][k] ?? T.es[k] ?? k);
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmtDur = m => { const h=Math.floor(m/60), r=m%60; return (h?h+" h":"") + (h&&r?" ":"") + (r?r+" min":""); };
+const fmtPrice = s => s.p==null ? (s.pl? s.pl[L()] : t("perso")) : "$"+s.p;
+const loc = () => lang==="es" ? "es-US" : "en-US";
+const toMin = hm => { const [h,m]=hm.split(":").map(Number); return h*60+m; };
+const fmtTime = min => new Date(2026,0,1,Math.floor(min/60),min%60).toLocaleTimeString(loc(),{hour:"numeric",minute:"2-digit"});
+const icon = (id,cls="ico") => `<svg class="${cls} ico" viewBox="0 0 120 120" aria-hidden="true">${ICONS[id]}</svg>`;
+const hasCare = s => !!(s.pre||s.con||s.post||s.rx);
+const cap = x => x.charAt(0).toUpperCase()+x.slice(1);
+
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>el.textContent=t(el.dataset.i18n));
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>el.innerHTML=t(el.dataset.i18nHtml));
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===lang));
+  $(".hero h1").setAttribute("aria-label",[t("hero.l1"),t("hero.l2"),t("hero.l3")].join(" "));
+  renderCats(); renderPanel(false); renderPlan();
+  if(!$("#sheet").hidden) renderStep();
+  if(!$("#dsheet").hidden && openDetail) showDetail(openDetail,true);
+}
+document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>{ lang=b.dataset.lang; try{localStorage.setItem("plx-lang",lang)}catch(e){} applyLang(); }));
+
+/* ---------- services ---------- */
+let cat="facial";
+function fromPrice(c){ const ps=S.filter(s=>s.c===c&&s.p!=null).map(s=>s.p); return ps.length?"$"+Math.min(...ps):null; }
+function renderCats(){
+  $("#cats").innerHTML = CATS.map(c=>{ const fp=fromPrice(c.id), n=S.filter(s=>s.c===c.id).length;
+    return `<button type="button" class="cat" role="tab" id="cat-${c.id}" aria-selected="${c.id===cat}" aria-controls="panel" data-cat="${c.id}">
+      <span class="count">${n}</span>${icon(c.id)}<h3>${c[lang]}</h3>
+      <div class="foot"><span>${fp?t("cat.from"):""}<b>${fp||t("cat.consult")}</b></span><span class="arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 6h10M7 2l4 4-4 4"/></svg></span></div>
+    </button>`; }).join("");
+  $("#cats").querySelectorAll(".cat").forEach(b=>b.onclick=()=>{ cat=b.dataset.cat; renderCats(); renderPanel(true); });
+}
+function rowHTML(s,i){
+  const tags = (s.req?`<span class="tag">${t("req")}</span>`:"");
+  return `<div class="row" style="--i:${i}"><div><h5>${esc(s.n)}${tags}</h5><p>${s.s[L()]}</p></div>
+    <div class="right"><span class="price${s.p==null?" soft":""}">${fmtPrice(s)}</span><span class="dur">${fmtDur(s.m)}</span>
+    <div class="acts"><button type="button" class="link" data-detail="${s.id}">${t("details")}</button><button type="button" class="link go" data-id="${s.id}">${t("cta.book")}</button></div></div></div>`;
+}
+function renderPanel(scroll){
+  const c=CATS.find(x=>x.id===cat), list=S.filter(s=>s.c===cat), sig=list.find(s=>s.g==="sig"); let i=0;
+  const groups = GROUPS[cat].map(g=>{ const its=list.filter(s=>s.g===g.id); if(!its.length) return "";
+    return `<div class="group"><h4>${g[lang]}<small>${g.n[lang]}</small></h4><div class="rows">${its.map(s=>rowHTML(s,i++)).join("")}</div></div>`; }).join("");
+  $("#panel").innerHTML = `<div class="panel-body">
+    <div class="panel-head"><div><h3>${c[lang]}</h3><p>${c.d[lang]}</p></div><button class="btn line sm" type="button" data-bookcat="${cat}">${t("cta.bookLong")}</button></div>
+    ${sig?`<div class="sig"><div><span class="tagline">${t("sig")}</span><h4>${esc(sig.n)}</h4><p>${sig.l[L()]}</p></div>
+      <div class="right"><span class="big">$${sig.p}</span><span class="dur" style="font-size:.66rem;letter-spacing:.16em;color:var(--deep-muted)">${fmtDur(sig.m).toUpperCase()}</span>
+      <div style="display:flex;gap:16px;align-items:center"><button type="button" class="link" data-detail="${sig.id}">${t("details")}</button><button type="button" class="btn sm" data-id="${sig.id}">${t("cta.book")}</button></div></div></div>`:""}
+    ${groups}</div>`;
+  $("#panel").querySelectorAll("[data-id]").forEach(b=>b.onclick=()=>openBooking(b.dataset.id));
+  $("#panel").querySelectorAll("[data-detail]").forEach(b=>b.onclick=()=>showDetail(b.dataset.detail));
+  $("#panel").querySelector("[data-bookcat]").onclick=e=>{ B.fcat=e.currentTarget.dataset.bookcat; B.svc=null; B.step=0; openBooking(); };
+  if(scroll) $("#panel").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
+}
+function renderPlan(){
+  const inc=S.filter(s=>s.plan&&!s.member).sort((a,b)=>b.p-a.p);
+  $("#plan-list").innerHTML = inc.map(s=>`<li><span>${esc(s.n)}</span><span><s>$${s.p}</s></span></li>`).join("")
+    + PLAN_EXTRA.map(x=>`<li><span>${x[0]}</span><span>${t("plan.incl")}</span></li>`).join("");
+}
+$("#plan-book").onclick=()=>{ B.pay="start"; openBooking("member"); };
+
+/* ---------- sheets ---------- */
+let lastFocus=null, openDetail=null;
+function openSheet(id){
+  lastFocus=document.activeElement;
+  const sh=$(id), sc=$("#scrim"); sh.hidden=false; sc.hidden=false;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{ sh.classList.add("on"); sc.classList.add("on"); }));
+  document.body.style.overflow="hidden";
+  setTimeout(()=>sh.querySelector("[data-close]").focus(),60);
+}
+function closeSheet(id, keepScrim){
+  const sh=$(id); if(sh.hidden) return;
+  sh.classList.remove("on");
+  if(!keepScrim){ $("#scrim").classList.remove("on"); document.body.style.overflow=""; setTimeout(()=>{ $("#scrim").hidden=true; },560); }
+  setTimeout(()=>{ sh.hidden=true; },560);
+  if(id==="#sheet" && B.step===4) resetBooking();
+  if(id==="#dsheet") openDetail=null;
+  if(!keepScrim && lastFocus && lastFocus.focus) lastFocus.focus();
+}
+function closeAll(){ closeSheet("#dsheet"); closeSheet("#sheet"); }
+document.querySelectorAll("[data-close]").forEach(b=>b.onclick=closeAll);
+$("#scrim").onclick=closeAll;
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeAll(); });
+
+/* ---------- details ---------- */
+function careList(title,arr,open){ return arr?`<details class="care"${open?" open":""}><summary>${title}</summary><ul>${arr.map(x=>`<li>${x[L()]}</li>`).join("")}</ul></details>`:""; }
+function showDetail(id,refresh){
+  const s=S.find(x=>x.id===id); openDetail=id;
+  const c=CATS.find(x=>x.id===s.c);
+  $("#d-title").innerHTML=`<span class="kicker">${c[lang]}</span>${esc(s.n)}`;
+  $("#d-body").innerHTML=`<div class="pane">
+    <p class="d-lede">${s.l[L()]}</p>
+    <div class="chips"><span>${fmtDur(s.m)}</span><span>${fmtPrice(s)}</span>${s.req?`<span>${t("req")}</span>`:""}${s.med?`<span>${t("b.doctor")}</span>`:""}</div>
+    ${s.note?`<p class="note">${s.note[L()]}</p>`:""}
+    ${hasCare(s)?`<div class="care-grid">${careList(t("d.pre"),s.pre,true)}${careList(t("d.con"),s.con)}${careList(t("d.post"),s.post)}${careList(t("d.rx"),s.rx)}</div>`:`<p class="note">${t("d.none")}</p>`}
+  </div>`;
+  $("#d-foot").innerHTML=`<div class="picked"><b>${esc(s.n)}</b>${fmtPrice(s)} · ${fmtDur(s.m)}</div><button class="btn" type="button" id="d-book">${t("d.book")}</button>`;
+  $("#d-book").onclick=()=>{ closeSheet("#dsheet",true); openBooking(id,true); };
+  if(!refresh) openSheet("#dsheet");
+  $("#d-body").scrollTop=0;
+}
+
+/* ---------- booking ---------- */
+const B={step:0,svc:null,fcat:"facial",date:null,time:null,month:null,fn:"",ln:"",email:"",phone:"",msg:"",first:true,pay:"local",consent:false};
+function resetBooking(){ Object.assign(B,{step:0,svc:null,date:null,time:null,month:null,msg:"",pay:"local",consent:false}); }
+function openBooking(id, fromDetail){
+  if(id){ const s=S.find(x=>x.id===id); if(!B.svc||B.svc.id!==id){ B.date=null; B.time=null; } B.svc=s; B.fcat=s.c; B.step=1; }
+  else if(B.step===4) resetBooking();
+  if(B.svc && !B.svc.plan && B.pay!=="local") B.pay="local";
+  renderStep();
+  if(fromDetail){ const sh=$("#sheet"); sh.hidden=false; requestAnimationFrame(()=>requestAnimationFrame(()=>sh.classList.add("on"))); setTimeout(()=>sh.querySelector("[data-close]").focus(),60); }
+  else openSheet("#sheet");
+}
+document.addEventListener("click",e=>{ if(e.target.closest("[data-book]")) openBooking(); });
+
+const dayKey=d=>d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+function slotsFor(date){
+  const h=CONFIG.hours[date.getDay()]; if(!h||!B.svc) return [];
+  const today=new Date(); today.setHours(0,0,0,0); if(date<today) return [];
+  const open=toMin(h[0]), close=toMin(h[1]), now=new Date(), isToday=dayKey(date)===dayKey(now), nowMin=now.getHours()*60+now.getMinutes()+60;
+  const out=[]; for(let m=open;m+B.svc.m<=close;m+=CONFIG.slotStep){ if(!isToday||m>=nowMin) out.push(m); } return out;
+}
+function firstAvailable(){ const d=new Date(); d.setHours(0,0,0,0); for(let i=0;i<120;i++){ const x=new Date(d); x.setDate(d.getDate()+i); if(slotsFor(x).length) return x; } return null; }
+function payLabel(){ return B.pay==="plan"?t("b.pay2"):B.pay==="start"?t("b.pay3"):t("b.pay1"); }
+function staff(){ return B.svc.med?t("b.doctor"):t("b.dannitza"); }
+
+function renderStep(){
+  const body=$("#body");
+  document.querySelectorAll("#steps li").forEach((li,i)=>{ li.className=i<B.step?"done":i===B.step?"cur":""; });
+  $("#foot").hidden = B.step>=3;
+  $("#back").style.visibility = B.step>0?"visible":"hidden";
+
+  if(B.step===0){
+    const order=["sig",...GROUPS[B.fcat].map(g=>g.id)];
+    const list=S.filter(s=>s.c===B.fcat).sort((a,b)=>order.indexOf(a.g)-order.indexOf(b.g));
+    body.innerHTML=`<div class="pane"><h3>${t("b.which")}</h3>
+      <div class="bcats">${CATS.map(c=>`<button type="button" class="bcat" data-fc="${c.id}" aria-pressed="${c.id===B.fcat}">${icon(c.id,"")}${c.short[lang]}</button>`).join("")}</div>
+      <h4>${CATS.find(c=>c.id===B.fcat)[lang]}</h4>
+      <div class="opts">${list.map(s=>`<button type="button" class="opt" data-sid="${s.id}" aria-pressed="${!!(B.svc&&B.svc.id===s.id)}"><b>${esc(s.n)}</b><span class="p">${fmtPrice(s)}</span><span class="d">${fmtDur(s.m)}${s.g==="sig"?" · "+t("sig"):""}${s.req?" · "+t("req"):""}</span></button>`).join("")}</div></div>`;
+    body.querySelectorAll("[data-fc]").forEach(b=>b.onclick=()=>{ B.fcat=b.dataset.fc; renderStep(); });
+    body.querySelectorAll("[data-sid]").forEach(b=>b.onclick=()=>{ const n=S.find(s=>s.id===b.dataset.sid); if(!B.svc||B.svc.id!==n.id){B.date=null;B.time=null;} B.svc=n; if(!n.plan&&B.pay!=="local") B.pay="local";
+      body.querySelectorAll("[data-sid]").forEach(o=>o.setAttribute("aria-pressed",o===b)); updateFoot(); });
+  }
+  if(B.step===1){
+    if(!B.date||!slotsFor(B.date).length){ B.date=firstAvailable(); B.time=null; }
+    if(!B.month){ const d=B.date||new Date(); B.month=new Date(d.getFullYear(),d.getMonth(),1); }
+    const now=new Date(), minM=new Date(now.getFullYear(),now.getMonth(),1), maxM=new Date(now.getFullYear(),now.getMonth()+CONFIG.monthsAhead-1,1);
+    const y=B.month.getFullYear(), mo=B.month.getMonth(), days=new Date(y,mo+1,0).getDate(), lead=new Date(y,mo,1).getDay();
+    const dows=[...Array(7)].map((_,i)=>new Date(2026,1,1+i).toLocaleDateString(loc(),{weekday:"narrow"}));
+    let cells=dows.map(d=>`<span class="dow">${d}</span>`).join("")+"<span></span>".repeat(lead);
+    for(let d=1;d<=days;d++){ const x=new Date(y,mo,d), ok=slotsFor(x).length>0, sel=B.date&&dayKey(x)===dayKey(B.date);
+      cells+=`<button type="button" class="dbtn${ok?" av":""}" data-d="${x.getTime()}" ${ok?"":"disabled"} aria-pressed="${!!sel}" aria-label="${x.toLocaleDateString(loc(),{weekday:"long",day:"numeric",month:"long"})}">${d}</button>`; }
+    const sl=B.date?slotsFor(B.date):[], am=sl.filter(m=>m<720), pm=sl.filter(m=>m>=720);
+    const grp=(label,arr)=>arr.length?`<div class="slots-group"><h4>${label}</h4><div class="slots">${arr.map(m=>`<button type="button" class="slot" data-m="${m}" aria-pressed="${B.time===m}">${fmtTime(m)}</button>`).join("")}</div></div>`:"";
+    body.innerHTML=`<div class="pane">
+      <div class="svc-card"><b>${esc(B.svc.n)}</b><span>${fmtDur(B.svc.m)} · ${fmtPrice(B.svc)} · ${t("b.with")} ${staff()}</span><span>${t("b.where")}</span></div>
+      <h3>${t("b.cal")}</h3>
+      <div class="cal"><div class="cal-top"><button type="button" id="pm" aria-label="Mes anterior" ${B.month<=minM?"disabled":""}><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 1L3 6l5 5"/></svg></button>
+        <b>${cap(B.month.toLocaleDateString(loc(),{month:"long",year:"numeric"}))}</b>
+        <button type="button" id="nm" aria-label="Mes siguiente" ${B.month>=maxM?"disabled":""}><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 1l5 5-5 5"/></svg></button></div>
+        <div class="grid7">${cells}</div></div>
+      <p class="tz">${t("b.tz")}</p>
+      ${B.date&&B.date.getMonth()===mo ? `<h3>${cap(B.date.toLocaleDateString(loc(),{weekday:"long",day:"numeric",month:"long"}))}</h3>${sl.length?grp(t("b.am"),am)+grp(t("b.pm"),pm):`<p class="empty">${t("b.noslots")}</p>`}` : `<p class="empty">${t("b.pickday")}</p>`}
+    </div>`;
+    $("#pm").onclick=()=>{ B.month=new Date(y,mo-1,1); renderStep(); };
+    $("#nm").onclick=()=>{ B.month=new Date(y,mo+1,1); renderStep(); };
+    body.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>{ B.date=new Date(+b.dataset.d); B.time=null; const st=body.scrollTop; renderStep(); body.scrollTop=st; });
+    body.querySelectorAll("[data-m]").forEach(b=>b.onclick=()=>{ B.time=+b.dataset.m; body.querySelectorAll("[data-m]").forEach(o=>o.setAttribute("aria-pressed",o===b)); updateFoot(); });
+  }
+  if(B.step===2){
+    const payOpts = B.svc.member
+      ? [["start",t("b.pay3"),t("b.pay3s")],["plan",t("b.pay2"),t("b.pay2s")]]
+      : B.svc.plan ? [["local",t("b.pay1"),t("b.pay1s")],["plan",t("b.pay2"),t("b.pay2s")]] : [["local",t("b.pay1"),t("b.pay1s")]];
+    if(!payOpts.some(o=>o[0]===B.pay)) B.pay=payOpts[0][0];
+    const f=(id,k,label,type="text",ac="")=>`<div class="field" id="f-${k}"><label for="in-${k}">${label} *</label><input id="in-${k}" type="${type}" ${ac?`autocomplete="${ac}"`:""} value="${esc(B[k])}"><span class="err">${k==="email"?t("b.errEmail"):k==="phone"?t("b.errPhone"):t("b.err")}</span></div>`;
+    body.innerHTML=`<form class="pane" id="form" novalidate>
+      <h3>${t("b.client")}</h3>
+      <div class="two">${f("fn","fn",t("b.fname"),"text","given-name")}${f("ln","ln",t("b.lname"),"text","family-name")}</div>
+      <div class="two">${f("email","email",t("b.email"),"email","email")}${f("phone","phone",t("b.phone"),"tel","tel")}</div>
+      <label class="toggle" for="in-first"><input id="in-first" type="checkbox" ${B.first?"checked":""}> ${t("b.first")}</label>
+      <div class="field"><label for="in-msg">${t("b.msg")}</label><textarea id="in-msg" placeholder="${t("b.msgPh")}">${esc(B.msg)}</textarea></div>
+      <h3>${t("b.payT")}</h3>
+      <div class="pay">${payOpts.map(o=>`<label><input type="radio" name="pay" value="${o[0]}" ${B.pay===o[0]?"checked":""}><b>${o[1]}</b><small>${o[2]}</small></label>`).join("")}</div>
+    </form>`;
+    ["fn","ln","email","phone","msg"].forEach(k=>$("#in-"+k).addEventListener("input",e=>{ B[k]=e.target.value; e.target.closest(".field")?.classList.remove("bad"); }));
+    $("#in-first").onchange=e=>B.first=e.target.checked;
+    body.querySelectorAll('input[name="pay"]').forEach(r=>r.onchange=()=>{ B.pay=r.value; });
+    $("#form").onsubmit=e=>{ e.preventDefault(); next(); };
+  }
+  if(B.step===3){
+    const s=B.svc, care=hasCare(s);
+    body.innerHTML=`<div class="pane"><h3>${t("b.review")}</h3>${summaryHTML()}
+      ${care?`${careList(t("d.pre"),s.pre,true)}${careList(t("d.con"),s.con)}`:""}
+      <label class="consent"><input type="checkbox" id="consent" ${B.consent?"checked":""}> <span>${care?t("b.consent"):t("b.consentNone")}</span></label>
+      <a class="btn" id="send" href="${waHref()}" target="_blank" rel="noopener" aria-disabled="${!B.consent}"><svg width="16" height="16" aria-hidden="true"><use href="#wa"/></svg> ${t("b.send")}</a>
+      <p class="note">${t("b.policy")}</p>
+      <button class="back" type="button" id="back2" style="justify-self:start">← ${t("b.back")}</button></div>`;
+    $("#consent").onchange=e=>{ B.consent=e.target.checked; $("#send").setAttribute("aria-disabled",!B.consent); };
+    $("#send").onclick=()=>{ setTimeout(()=>{ B.step=4; renderStep(); },400); };
+    $("#back2").onclick=()=>{ B.step=2; renderStep(); };
+  }
+  if(B.step===4){
+    body.innerHTML=`<div class="pane done-pane">
+      <svg viewBox="-62 -62 124 124" class="draw" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle pathLength="1" r="56"/><path pathLength="1" d="M-20 2 L-6 16 L22 -14" style="animation-delay:.6s"/></g></svg>
+      <h3>${t("b.doneT")}</h3><p>${t("b.doneP")}</p>${summaryHTML()}
+      <div class="small-actions"><a class="copy" href="${waHref()}" target="_blank" rel="noopener" style="text-decoration:none">${t("b.reopen")}</a><button type="button" class="copy" id="copy-sum">${t("b.copyS")}</button><button type="button" class="copy" id="restart">${t("b.new")}</button></div></div>`;
+    $("#copy-sum").onclick=e=>copyText(waMessage(),e.currentTarget);
+    $("#restart").onclick=()=>{ resetBooking(); renderStep(); };
+  }
+  body.scrollTop=0; updateFoot();
+}
+const dateLabel=()=>B.date?cap(B.date.toLocaleDateString(loc(),{weekday:"long",day:"numeric",month:"long",year:"numeric"})):"";
+function summaryHTML(){
+  const s=B.svc, r=(k,v,c="")=>`<div class="r ${c}"><span>${k}</span><span>${v}</span></div>`;
+  const total = B.pay==="plan" ? t("plan.incl") : fmtPrice(s);
+  return `<div class="summary">${r(t("r.service"),esc(s.n)+(s.req?` <small style="color:var(--muted)">· ${t("req")}</small>`:""))}${r(t("r.date"),dateLabel())}${r(t("r.time"),fmtTime(B.time))}${r(t("r.dur"),fmtDur(s.m))}${r(t("r.staff"),staff())}
+    ${B.fn?r(t("r.client"),esc(B.fn+" "+B.ln)):""}${r(t("r.pay"),payLabel())}${r(t("r.total"),total,"total")}</div>`;
+}
+function waMessage(){
+  const s=B.svc;
+  return [t("wa.hi"),"",
+    `• ${t("r.service")}: ${s.n} (${fmtPrice(s)} · ${fmtDur(s.m)})${s.req?" "+t("wa.req"):""}`,
+    `• ${t("r.date")}: ${dateLabel()}`,`• ${t("r.time")}: ${fmtTime(B.time)}`,
+    `• ${t("r.client")}: ${B.fn.trim()} ${B.ln.trim()}`,`• ${t("b.email")}: ${B.email.trim()}`,`• ${t("b.phone")}: ${B.phone.trim()}`,
+    `• ${t("first")}: ${B.first?t("yes"):t("no")}`,`• ${t("r.pay")}: ${payLabel()}`,
+    B.msg.trim()?`\n${t("wa.msg")}: ${B.msg.trim()}`:""].filter(Boolean).join("\n");
+}
+const waHref=()=>`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(waMessage())}`;
+const canNext=()=>B.step===0?!!B.svc:B.step===1?(B.date&&B.time!=null):true;
+function updateFoot(){
+  if(B.step>=3) return;
+  const s=B.svc;
+  $("#picked").innerHTML = s?`<b>${esc(s.n)}</b>${fmtPrice(s)} · ${fmtDur(s.m)}${B.step>=1&&B.time!=null?` · ${fmtTime(B.time)}`:""}`:t("b.pick");
+  $("#next").disabled=!canNext();
+}
+function next(){
+  if(B.step===2){
+    let ok=true; const bad=k=>{ $("#f-"+k).classList.add("bad"); ok=false; };
+    if(!B.fn.trim()) bad("fn"); if(!B.ln.trim()) bad("ln");
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(B.email.trim())) bad("email");
+    if(B.phone.replace(/\D/g,"").length<10) bad("phone");
+    if(!ok){ document.querySelector(".field.bad input")?.focus(); return; }
+  }
+  if(!canNext()) return;
+  B.step++; renderStep();
+}
+$("#next").onclick=next;
+$("#back").onclick=()=>{ if(B.step>0){ B.step--; renderStep(); } };
+
+/* ---------- copy ---------- */
+function copyText(text,btn){
+  const done=()=>{ if(!btn) return; const o=btn.textContent; btn.textContent=t("copied"); setTimeout(()=>btn.textContent=o,1600); };
+  const fb=()=>{ const ta=document.createElement("textarea"); ta.value=text; ta.style.position="fixed"; ta.style.opacity="0"; document.body.appendChild(ta); ta.select(); try{document.execCommand("copy")}catch(e){} ta.remove(); done(); };
+  try{ navigator.clipboard.writeText(text).then(done,fb); }catch(e){ fb(); }
+}
+document.addEventListener("click",e=>{ const b=e.target.closest("[data-copy]"); if(b) copyText(b.dataset.copy,b); });
+
+applyLang();
+</script>
+
+</body></html>
